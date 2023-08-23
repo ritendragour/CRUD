@@ -9,10 +9,10 @@
 	
 <form action="welcome.php" method="post">
 	<label for="">First Name</label>
-	<input type="text" name="fname" value="Fdefault">
+	<input type="text" name="fname" value="">
 	<br>
 	<label for="">Last Name</label>
-	<input type="text" name="lname" value="Ldefault">
+	<input type="text" name="lname" value="">
 	<br>
 	<input type="submit">
 </form>
