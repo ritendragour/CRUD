@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('db.php'); 
     $id =$_GET['id'];
     $FirstName= $_POST['fname'];
     $LastName= $_POST['lname'];
