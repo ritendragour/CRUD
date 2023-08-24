@@ -12,12 +12,32 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 </head>
 <body>
 <form action="editfile.php?id=<?=$id?>" method="post">
+
 	<label for="">First Name</label>
 	<input type="text" name="fname" value="<?=$sql['fname']?>">
-	<br>
+
 	<label for="">Last Name</label>
 	<input type="text" name="lname" value="<?=$sql['lname']?>">
-	<br>
+<!--  -->
+	<label for="">E-mail / username</label>
+	<input type="email" name="email" value="<?=$sql['email']?>">
+
+	<label for="">Phone</label>
+	<input type="text" name="phone" value="<?=$sql['phone']?>">
+
+	<label for="">Password</label>
+	<input type="password" name="password" value="<?=$sql['password']?>">
+
+	<label for="">Gender</label>
+		<select name="gender" value="<?=$sql['gender']?>">
+			<option value="M">Male</option>
+			<option value="F">Female</option>
+			<option value="Other">Other</option>
+		</select>
+
+	<label for="">Location</label>
+	<input type="text" name="location" value="<?=$sql['location']?>">
+	<!--  -->
 	<input type="submit" value="Update">
 </form>
 

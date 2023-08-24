@@ -2,12 +2,41 @@
 include('db.php');
 $FirstName= $_POST['fname'];
 $LastName= $_POST['lname'];
-if(isset($_POST['fname'])){
-    $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`) VALUES ('$FirstName','$LastName')");
+$email= $_POST['email'];
+$phone= $_POST['phone'];
+$gender= $_POST['gender'];
+$location= $_POST['location'];
+$password= $_POST['password'];
+$cpassword= $_POST['cpassword'];
+
+if($password !=$cpassword){
+    echo"Password does not match. Please Try agian ";
     ?>
-    <a href='../ri/user.php'> Welcome </a>
-    <?php
+            <a href='../ri/index.php'> signup </a>
+            <?php
 }else{
-    echo "no data for you";
+
+    if(isset($_POST['fname'])){
+
+        $checkDupalicateEntry = $conn->query("SELECT email FROM `info` WHERE email= '$email'")->fetch();
+        
+        if($checkDupalicateEntry){
+            echo("'".$checkDupalicateEntry['email']."' This E-mail is already register <br> Please Try Agian later");
+            ?>
+            <a href='../ri/index.php'> signup </a>
+            <?php
+        }
+        else{
+            $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`, `location`,`password`)
+         VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$password')");
+          ?>
+          <a href='../ri/user.php'> welcome </a>
+          <?php
+        }
+       
+    }else{
+        echo "no data for you";
+    }
 }
+
 ?>

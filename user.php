@@ -10,9 +10,14 @@
 <?php
 include('db.php');
 $sql = $conn->query("SELECT * FROM info");
+?>
+<a href="../ri/deleteall.php">Delete All</a>
+<?php
 while($row = $sql->fetch()){
-    echo "<br>RG".$row['id']." ".$row["fname"]." ".$row["lname"]."  
+    echo "<br>RG".$row['id']." ".$row["fname"]." ".$row["lname"]." ".$row["email"]." ".$row["phone"]." ".$row["gender"]." ".$row["location"]." ".$row["dt"]."  
     <a href='../ri/update.php?id=$row[id]'>Update</a>
     <a href='../ri/delete.php?id=$row[id]'>delete</a>";
 }
 ?>
+</body>
+</html>
