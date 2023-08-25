@@ -14,7 +14,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <title>Document</title>
 </head>
 <body>
-    <?php echo"Hello Welcome".$_SESSION['fullname']." !";?>
+    <?php echo"Hello Welcome ".$_SESSION['fullname']." !";?>
     <a href="../ri/logout.php">logout</a>
 </body>
 </html>
