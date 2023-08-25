@@ -8,6 +8,7 @@
 </head>
 <body>
     <div class="container m-5">
+      <a href='../ri/index.php'><button type="submit" class="btn btn-primary w-25">Sign Up </button></a>
     <form action="loginsql.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -17,9 +18,9 @@
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" name="password"placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-  <a href='../ri/index.php' class=' submit w-50'> login </a>
-   </form>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
+
 </div>
 </body>
 </html>

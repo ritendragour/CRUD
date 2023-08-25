@@ -10,7 +10,7 @@
 	<!-- require('navbar.php') -->
 	<div class="main-container">
 		<form action="welcome.php" method="post">
-			<h2>Hello This is Testing Version 2.0</h2>
+			<h2>Hello This is Testing Version 2.o</h2>
 
 			<label for="">Full Name</label>
 			<div class="df">
