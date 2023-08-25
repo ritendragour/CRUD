@@ -41,8 +41,11 @@
 			<label for="">Location</label>
 			<input type="text" name="location" placeholder="Last Name">
 		<div class="sub-con">
-
-			<input type="submit" class="submit">
+			<div class="df">
+				<input type="submit" class="submit w-50">
+				
+			<a href='../ri/loginform.php' class=' submit w-50'> login </a>
+			</div>
 		</div>
 		</form>
 

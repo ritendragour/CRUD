@@ -30,7 +30,8 @@ if($password !=$cpassword){
             $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`, `location`,`password`)
          VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$password')");
           ?>
-          <a href='../ri/user.php'> welcome </a>
+          <a href='../ri/loginform.php'> login </a>
+
           <?php
         }
        
