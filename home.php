@@ -3,7 +3,7 @@
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     $loginuser= true;
-    header('location:index.php');
+    header('location:signup.php');
 }else{
 ?>
 <!DOCTYPE html>

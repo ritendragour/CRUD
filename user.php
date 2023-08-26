@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-<a href="../ri/index.php">Home</a>
+<a href="../ri/signup.php">Home</a>
 <?php
 include('db.php');
 $sql = $conn->query("SELECT * FROM info");

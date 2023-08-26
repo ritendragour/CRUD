@@ -1,14 +1,52 @@
+<?php
+include('db.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Log In</title>
+    <style>
+      body{
+        
+        background-color:#070c5a;
+      }
+      .container{
+        padding:0px;
+        margin: 0px;
+        display: flex;
+        justify-content: center;
+        width:100%;
+        height: 100vh;
+      }
+      span{
+        width:30%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .img-section{
+        width:70%;
+
+      }
+      img{
+        width:100%;
+        height: 100vh;
+      }
+      form{
+        width:80%;
+      }
+    </style>
 </head>
 <body>
-    <div class="container m-5">
-      <a href='../ri/index.php'><button type="submit" class="btn btn-primary w-25">Sign Up </button></a>
+    <div class="container">
+    <div class="img-section">
+  <img src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" alt="">
+</div>
+      <span>
+      <a href='../ri/signup.php'><button type="submit" class="btn btn-primary w-100">Sign Up </button></a>
     <form action="loginsql.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -20,6 +58,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Login</button>
 </form>
+</span>
 
 </div>
 </body>
