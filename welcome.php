@@ -10,10 +10,13 @@ $password= $_POST['password'];
 $cpassword= $_POST['cpassword'];
 
 if($password !=$cpassword){
-    echo"Password does not match. Please Try agian ";
     ?>
-            <a href='../ri/signup.php'> signup </a>
-            <?php
+    <div class="textareause">
+    <h2 style="font-size: 48px;" class="text-danger">Password does not match</h2>
+        <a href='../ri/signup.php' class="btn btn-dark btn-lg mt-3" 
+        style="text-decoration: none;color: white;">Sign Up </a>
+    </div>
+    <?php
 }else{
 
     if(isset($_POST['fname'])){
@@ -21,9 +24,16 @@ if($password !=$cpassword){
         $checkDupalicateEntry = $conn->query("SELECT email FROM `info` WHERE email= '$email'")->fetch();
         
         if($checkDupalicateEntry){
-            echo("'".$checkDupalicateEntry['email']."' This E-mail is already register <br> Please Try Agian later");
             ?>
-            <a href='../ri/signup.php'> signup </a>
+            <div class="textareause">
+            <?php
+            echo('<h2>"'.$checkDupalicateEntry['email'].'"');
+            ?>
+            This E-mail is already register</h2>
+            <h2 style="font-size: 48px;">Please Try Agian later</h2>
+                <a href='../ri/signup.php' class="btn btn-dark btn-lg mt-3" 
+                style="text-decoration: none;color: white;">Sign Up </a>
+            </div>
             <?php
         }
         else{
@@ -35,7 +45,8 @@ if($password !=$cpassword){
               <h1>Hello <?=$FirstName." ".$LastName?> </h1>
               <h2> Congratulations Successfully register your Email </h2>
               <h2>"<?=$email?>"</h2>
-              <button class="btn btn-dark text-light btn-lg w-25"><a href='../ri/loginform.php'>login</a></button>
+              <button class="btn btn-dark text-light btn-lg w-25"><a href='../ri/loginform.php' 
+              style="text-decoration: none;color: white;font-size: 28px;">login</a></button>
             
             </div>
           <?php
@@ -69,7 +80,7 @@ if($password !=$cpassword){
         font-size: 72px;
     }
     .textareause{
-        background-color: rgb(255,255,255,0.5);
+        background-color: rgb(255,255,255,0.7);
         width: 70%;
         padding: 50px;
         display: flex;

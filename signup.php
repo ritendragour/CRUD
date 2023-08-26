@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Sign Up</title>
 	<link rel="stylesheet" href="style.css">
 	<style>
 		*{
@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-items: center;
     justify-content: center;
-    background-image: url('https://c8.alamy.com/comp/ECMD14/hand-pushing-virtual-security-button-on-digital-background-ECMD14.jpg');
+    background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=600');
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -76,6 +76,12 @@ form h2{
 .w-50{
     width: 48%;
 }
+.df a{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
 
 	</style>
 </head>
@@ -86,6 +92,7 @@ form h2{
 			<h2>Hello This is Testing Version 2.0</h2>
 
 			<label for="">Full Name</label>
+			
 			<div class="df">
 					<input type="text" name="fname" placeholder="First Name" class="w-50" required>
 	
@@ -115,16 +122,12 @@ form h2{
 			<input type="text" name="location" placeholder="Last Name">
 		<div class="sub-con">
 			<div class="df">
-				<input type="submit" class="submit w-50">
+				<input type="submit" class="submit w-50" value="Sign Up">
 				
-			<a href='../ri/loginform.php' class=' submit w-50'> login </a>
+			<a href='../ri/loginform.php' class=' submit w-50'> Go to log In </a>
 			</div>
 		</div>
 		</form>
-
-		<div class="image-section">
-			<!-- <img src="https://images.pexels.com/photos/17821306/pexels-photo-17821306/free-photo-of-landscape-of-hills-and-mountains.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="" width="35%"> -->
-		</div>
 	</div>
 </body>
 </html>
