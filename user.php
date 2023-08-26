@@ -51,6 +51,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             text-decoration: none;
             color: black;
         }
+        .notaadmin{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
     </style>
 </head>
 <body>
@@ -78,6 +85,9 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
     }
     </script>
+    <?php 
+    if($role!="0"){
+        ?>
     <table>
   <tr>
     <th>Id</th>
@@ -89,7 +99,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <th>Location</th>
     <th>Data & Time</th>
     <th>Update</th>
-    <?php if($role!="0"){?>   <th>Delete</th>  <?php } ?>
+    <th>Delete</th>
   </tr>
 <?php
 while($row = $sql->fetch()){
@@ -110,12 +120,16 @@ while($row = $sql->fetch()){
 
  </tr>
 <?php
+} 
+// role else
+}else{
+
+    echo"<div class='notaadmin'><h1>Your not a admin.</h1> <h2>That why you can't see any details</h2></div>";
 }
 ?>
 </table>
 </body>
 </html>
-
 <?php
     }
 ?>

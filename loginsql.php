@@ -12,6 +12,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['role'] = $sqlLogin['role'];
+        $_SESSION['id'] = $sqlLogin['id'];
         $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];  
         header('location:home.php');
         

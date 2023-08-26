@@ -1,5 +1,7 @@
 <?php
 include('db.php');
+session_start();
+$role= $_SESSION['role'];
 $id = $_GET['id'];
 $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 ?>
@@ -116,7 +118,15 @@ form h2{
 
 			<label for="">Location</label>
 			<textarea type="text" name="location" value="<?=$sql['location']?>" placeholder="location"></textarea>
-			<!--  -->
+			<!--Start  role -->
+            <?php if($role!="0"){?>
+            <label for="">Role</label>
+				<select name="role" value="<?=$sql['role']?>">
+					<option value="0">User</option>
+					<option value="10">Admin</option>
+				</select>
+                <!--END role -->
+            <?php } ?>
 			<input type="submit" value="Update" class="mt-2 btn btn-primary w-50">
 		</form>
 	</div>

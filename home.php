@@ -1,6 +1,8 @@
 <?php
 include('db.php');
     session_start();
+    $role= $_SESSION['role'];
+    $id = $_SESSION['id'];
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     header('location:signup.php');
@@ -49,9 +51,13 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         <a href="#"><h2>Company name </h2></a>
         <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo$_SESSION['fullname']." !";?></a></button>
     </div>
-    
     <div class="seoc">
-        <a href="../ri/user.php" class="btn btn-light">Updated data</a>
+        <?php if($role!="0"){ ?>
+        <a href="../ri/user.php" class="btn btn-light">Updated All Data</a>
+        <?php } else{ ?>
+        <a href="../ri/update.php?id=<?=$id?>" class="btn btn-light">Updated data</a>
+
+        <?php } ?>
     </div>
 </body>
 </html> 
