@@ -24,7 +24,7 @@ include('db.php');
         width:30%;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-end;
         justify-content: center;
       }
       .img-section{
@@ -46,17 +46,17 @@ include('db.php');
   <img src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" alt="">
 </div>
       <span>
-      <a href='../ri/signup.php'><button type="submit" class="btn btn-primary w-100">Sign Up </button></a>
+      <a href='../ri/signup.php'><button type="submit" class="btn btn-warning w-100">Sign Up </button></a>
     <form action="loginsql.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" name="email" placeholder="Enter email">
+    <input type="email" class="form-control" name="email" placeholder="Enter email" required>
   </div>
   <div class="form-group">
     <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" name="password"placeholder="Password">
+    <input type="password" class="form-control" name="password"placeholder="Password" required>
   </div>
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit" class="btn btn-info mt-3 w-50">Log In</button>
 </form>
 </span>
 
