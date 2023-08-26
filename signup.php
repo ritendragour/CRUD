@@ -122,13 +122,16 @@ form h2{
 
 			<label for="">Location</label>
 			<textarea  name="location" placeholder="Enter your Location" rows="4" cols="50" style="padding:2px"></textarea >
-		<div class="sub-con">
-			<div class="df">
-				<input type="submit" class="submit w-50" value="Sign Up">
-				
-			<a href='../ri/loginform.php' class=' submit w-50'> Go to log In </a>
-			</div>
-		</div>
+		   <!-- Start hidden field-->
+           <input type="hidden" name="role" value="0">
+           <!-- End hidden field -->
+            <div class="sub-con">
+                <div class="df">
+                    <input type="submit" class="submit w-50" value="Sign Up">
+                    
+                    <a href='../ri/loginform.php' class=' submit w-50'> Go to log In </a>
+                </div>
+		    </div>
 		</form>
 	</div>
 </body>

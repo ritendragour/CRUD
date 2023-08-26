@@ -11,8 +11,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         
         session_start();
         $_SESSION['loggedin'] = true;
-        $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];
-
+        $_SESSION['role'] = $sqlLogin['role'];
+        $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];  
         header('location:home.php');
         
     }else{

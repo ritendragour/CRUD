@@ -8,6 +8,7 @@ $gender= $_POST['gender'];
 $location= $_POST['location'];
 $password= $_POST['password'];
 $cpassword= $_POST['cpassword'];
+$role=$_POST['role'];
 
 if($password !=$cpassword){
     ?>
@@ -19,7 +20,7 @@ if($password !=$cpassword){
     <?php
 }else{
 
-    if(isset($_POST['fname'])){
+    if(isset($_POST['email'])){
 
         $checkDupalicateEntry = $conn->query("SELECT email FROM `info` WHERE email= '$email'")->fetch();
         
@@ -37,8 +38,8 @@ if($password !=$cpassword){
             <?php
         }
         else{
-            $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`, `location`,`password`)
-         VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$password')");
+            $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`, `location`,`password`,`role`)
+         VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$password','$role')");
           ?>
           <div class="textareause">
 

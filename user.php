@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+$role= $_SESSION['role'];
+
+// 0 = user, 10 = admin
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    header("Location: ../ri/signup.php");
+
+}else{
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +32,7 @@
             color: white;
             font-weight: 600;
         }
+        
         table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -34,7 +47,10 @@
         border: 1px solid black;
         background-color: #dddddd;
         }
-
+        .logoutbtn{
+            text-decoration: none;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -43,8 +59,15 @@
         $sql = $conn->query("SELECT * FROM info");
     ?>
     <div class="main-container">
-        <a href="../ri/home.php"><h2>Company Name</h2></a>
+        <a href="../ri/home.php"><h2>Company Name
+
+        </h2></a>
+        <?php if($role!="0"){?>
         <button onclick="deleteFun()" class="btn btn-warning">Delete All</button>
+        <?php }else{ ?>
+        <button class="btn btn-warning"><a href="../ri/logout.php" class="logoutbtn">
+            logout <?php echo$_SESSION['fullname']." !";?></a></button>
+       <?php } ?>
     </div>
     <script>
         function deleteFun() {
@@ -66,7 +89,7 @@
     <th>Location</th>
     <th>Data & Time</th>
     <th>Update</th>
-    <th>Delete</th>
+    <?php if($role!="0"){?>   <th>Delete</th>  <?php } ?>
   </tr>
 <?php
 while($row = $sql->fetch()){
@@ -81,7 +104,10 @@ while($row = $sql->fetch()){
     <td><?=$row["location"]?></td>
     <td><?=$row["dt"]?></td>
     <td><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
+    <?php if($role!="0"){?>
     <td><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
+    <?php } ?>
+
  </tr>
 <?php
 }
@@ -89,3 +115,7 @@ while($row = $sql->fetch()){
 </table>
 </body>
 </html>
+
+<?php
+    }
+?>
