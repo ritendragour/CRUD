@@ -28,7 +28,6 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 100vh;
     font-size: 24px;
     font-weight: 600;
 }
@@ -87,6 +86,11 @@ form h2{
     justify-content: center;
     text-decoration: none;
 }
+.text-right{
+    margin-top: 5px;
+    text-align: end;
+    font-size: 20px;
+}
 </style>
 </head>
 <body>
@@ -108,25 +112,36 @@ form h2{
 
 			<label for="">Password</label>
 			<input type="password" name="password" value="<?=$sql['password']?>" placeholder="Enter Password">
+           
+            <div class="df">
+                <label for="">Gender</label>
+                <p class="text-danger text-right"><?="Old value : ".$sql['gender']?></p>
+            </div>
 
-			<label for="">Gender</label>
-				<select name="gender" value="<?=$sql['gender']?>" placeholder="gender">
-					<option value="M">Male</option>
-					<option value="F">Female</option>
+				<select name="gender" placeholder="gender">
+					<option value="Male">Male</option>
+					<option value="Female">Female</option>
 					<option value="Other">Other</option>
 				</select>
-
-			<label for="">Location</label>
-			<textarea type="text" name="location" value="<?=$sql['location']?>" placeholder="location"></textarea>
-			<!--Start  role -->
+                <!--Start  role -->
             <?php if($role!="0"){?>
-            <label for="">Role</label>
+                <div class="df">
+
+                    <label for="">Role</label>
+                    <p class="text-danger text-right"><?php echo"Old value : ";
+                    if($sql['role']=="0"){ echo "User";}else{ echo"Admin"; }?></p>
+                </div>
+
 				<select name="role" value="<?=$sql['role']?>">
 					<option value="0">User</option>
 					<option value="10">Admin</option>
 				</select>
                 <!--END role -->
             <?php } ?>
+
+			<label for="">Location</label>
+			<textarea type="text" name="location" value="<?=$sql['location']?>" placeholder="location"></textarea>
+			
 			<input type="submit" value="Update" class="mt-2 btn btn-primary w-50">
 		</form>
 	</div>
