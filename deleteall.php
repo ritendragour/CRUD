@@ -1,7 +1,12 @@
 <?php
-include('db.php');
 
+include('db.php');
 $sqldeleteall = $conn->query("DELETE FROM `info`")->fetch();
 
-header("location:user.php");
+session_start();
+session_unset();
+session_destroy();
+
+header("location:signup.php");
+
 ?>

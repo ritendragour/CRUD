@@ -115,13 +115,13 @@ form h2{
 
 			<label for="">Gender</label>
 			<select name="gender" required>
-				<option value="M">Male</option>
-				<option value="F">Female</option>
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
 				<option value="Other">Other</option>
 			</select>
 
 			<label for="">Location</label>
-			<textarea  name="location" placeholder="Enter your Location" rows="4" cols="50"></textarea >
+			<textarea  name="location" placeholder="Enter your Location" rows="4" cols="50" style="padding:2px"></textarea >
 		<div class="sub-con">
 			<div class="df">
 				<input type="submit" class="submit w-50" value="Sign Up">

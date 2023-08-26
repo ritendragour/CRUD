@@ -37,7 +37,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: right;
+            padding-right: 400px;
+        }
+        .seoc a{
+            font-size: 32px;
         }
     </style>
 </head>
@@ -48,7 +52,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     </div>
     
     <div class="seoc">
-        <a href="../ri/user.php" class="btn btn-primary">Updated data</a>
+        <a href="../ri/user.php" class="btn btn-light">Updated data</a>
     </div>
 </body>
 </html> 
