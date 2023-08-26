@@ -6,10 +6,12 @@
 	<title>Sign Up</title>
 	<link rel="stylesheet" href="style.css">
 	<style>
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 		*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
 }
 .main-container{
     display: flex;
@@ -100,16 +102,16 @@ form h2{
 			</div>
 
 			<label for="">E-mail</label>
-				<input type="email" name="email" placeholder="Last Name" required>
+				<input type="email" name="email" placeholder="Enter E-mail" required>
 
 			<label for="">Phone</label>
-				<input type="text" name="phone" placeholder="Last Name">
+				<input type="text" name="phone" placeholder="Enter Phone number ex. +91 9876543210">
 
 			<label for="">Password</label>
-			<input type="password" name="password" placeholder="Last Name" required>
+			<input type="password" name="password" placeholder="Password" required>
 			
 			<label for="">Confirm Password</label>
-			<input type="password" name="cpassword" placeholder="Last Name" required>
+			<input type="password" name="cpassword" placeholder="Confirm Password" required>
 
 			<label for="">Gender</label>
 			<select name="gender" required>
@@ -119,7 +121,7 @@ form h2{
 			</select>
 
 			<label for="">Location</label>
-			<input type="text" name="location" placeholder="Last Name">
+			<textarea  name="location" placeholder="Enter your Location" rows="4" cols="50"></textarea >
 		<div class="sub-con">
 			<div class="df">
 				<input type="submit" class="submit w-50" value="Sign Up">

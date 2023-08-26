@@ -12,7 +12,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
 
     <style>
         .loginHeader {
@@ -48,7 +48,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     </div>
     
     <div class="seoc">
-        <a href="#" class="btn btn-primary">Code download !</a>
+        <a href="../ri/user.php" class="btn btn-primary">Updated data</a>
     </div>
 </body>
 </html> 
