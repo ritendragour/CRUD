@@ -94,6 +94,14 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
             text-align: end;
             font-size: 20px;
         }
+        .sp{
+            display: flex;    
+            align-items: center;
+            justify-content: flex-end;
+            font-size: small;
+            color:red;
+            margin-top: 5px;
+        }
         @media(max-width:1200px){
             form{
                 width: 100vw;
@@ -131,8 +139,13 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 			<input type="text" name="phone" value="<?=$sql['phone']?>" placeholder="Enter Phone">
 
 			<label for="">Password</label>
-			<input type="password" name="password" value="<?=$sql['password']?>" placeholder="Enter Password">
-           
+			<input type="password" name="password" id="pass" value="<?=$sql['password']?>" 
+            minlength="8" placeholder="Enter Password">
+            <div class="sp">
+                <input type="checkbox" onclick="validateForm()">
+                <p class="ifp" style="margin-bottom:0px">&nbsp;Show Password</p>
+            </div>
+
             <div class="df">
                 <label for="">Gender</label>
                 <p class="text-danger text-right"><?="Old value : ".$sql['gender']?></p>
@@ -164,5 +177,15 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 			<input type="submit" value="Update" class="mt-2 btn btn-primary w-50">
 		</form>
 	</div>
+    <script>
+        function validateForm() {
+            var pass = document.getElementById('pass');
+            if(pass.type === "password"){
+                pass.type = "text";
+            }else{
+                pass.type = "password"
+            }
+        }
+        </script>
 </body>
 </html>

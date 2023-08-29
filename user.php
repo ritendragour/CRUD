@@ -32,7 +32,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             color: white;
             font-weight: 600;
         }
-        
         table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -66,15 +65,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         $sql = $conn->query("SELECT * FROM info");
     ?>
     <div class="main-container">
-        <a href="../ri/home.php"><h2>Company Name
-
-        </h2></a>
+        <a href="../ri/home.php"><h2>Company Name</h2></a>
+        
         <?php if($role!="0"){?>
         <button onclick="deleteFun()" class="btn btn-warning">Delete All</button>
         <?php }else{ ?>
         <button class="btn btn-warning"><a href="../ri/logout.php" class="logoutbtn">
             logout <?php echo$_SESSION['fullname']." !";?></a></button>
        <?php } ?>
+
+    <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo"(".$_SESSION['fullname'].")";?></a></button>
+
     </div>
     <script>
         function deleteFun() {

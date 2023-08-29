@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sign Up</title>
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 		*{
@@ -52,7 +52,6 @@
             justify-content: center;
             margin-top: 5px;
             align-items: center;
-            justify-content: center;
         }
         .submit{
             color: white;
@@ -97,6 +96,13 @@
         .w-50{
             width: 48%;
         }
+        .sp{
+            display: flex;
+            justify-content: flex-end;
+            font-size: small;
+            color:red;
+            margin-top: 5px;
+        }
         .df a{
             display: flex;
             align-items: center;
@@ -117,12 +123,9 @@
 		<form action="welcome.php" method="post">
 			<h2>Testing Version 2.0</h2>
             <div class="loginsection">
-
                 <a href='../ri/loginform.php' class='loginbtn'>> > log In </a>
             </div>
-
 			<label for="">Full Name</label>
-			
 			<div class="df">
 					<input type="text" name="fname" placeholder="First Name" class="w-50" required>
 	
@@ -136,10 +139,18 @@
 				<input type="text" name="phone" placeholder="Enter Phone number ex. +91 9876543210">
 
 			<label for="">Password</label>
-			<input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password" placeholder="Password" id="pass" minlength="8" required >
+            <div class="sp">
+                <input type="checkbox" onclick="validateForm()">
+                <p class="ifp">&nbsp;Show Password</p>
+            </div>
 			
 			<label for="">Confirm Password</label>
-			<input type="password" name="cpassword" placeholder="Confirm Password" required>
+            <input type="password" name="cpassword" placeholder="Confirm Password" id="cpass" minlength="8" required>
+            <div class="sp">
+                <input type="checkbox" onclick="validateFormc()"> 
+                <p class="ifp">&nbsp;Show Password</p>
+            </div>
 
 			<label for="">Gender</label>
 			<select name="gender" required>
@@ -158,5 +169,23 @@
 		    </div>
 		</form>
 	</div>
+    <script>
+        function validateForm() {
+            var pass = document.getElementById('pass');
+            if(pass.type === "password"){
+                pass.type = "text";
+            }else{
+                pass.type = "password"
+            }
+        }
+        function validateFormc() {
+            var cpass = document.getElementById('cpass');
+            if(cpass.type === "password"){
+                cpass.type = "text";
+            }else{
+                cpass.type = "password"
+            }
+        }
+    </script>
 </body>
 </html>
