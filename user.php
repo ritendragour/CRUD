@@ -57,6 +57,11 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         justify-content: center;
         height: 100vh;
     }
+    @media(max-width:1440px){
+        .noimp{
+            display: none;
+        }
+    }
     </style>
 </head>
 <body>
@@ -65,16 +70,17 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         $sql = $conn->query("SELECT * FROM info");
     ?>
     <div class="main-container">
-        <a href="../ri/home.php"><h2>Company Name</h2></a>
+        <a href="../ri/home.php" style="text-decoration: none;"><h2>Company Name</h2></a>
         
         <?php if($role!="0"){?>
-        <button onclick="deleteFun()" class="btn btn-warning">Delete All</button>
+        <button onclick="deleteFun()" class="btn btn-info noimp">Delete All</button>
         <?php }else{ ?>
         <button class="btn btn-warning"><a href="../ri/logout.php" class="logoutbtn">
             logout <?php echo$_SESSION['fullname']." !";?></a></button>
-       <?php } ?>
+        <?php } ?>
 
-    <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo"(".$_SESSION['fullname'].")";?></a></button>
+        <button class="btn btn-warning"><a href="../ri/logout.php"
+        style="text-decoration: none;color: black;">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
 
     </div>
     <script>
@@ -91,35 +97,35 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         ?>
     <table>
   <tr>
-    <th>S N</th>
-    <th>Id</th>
-    <th>Full Name</th>
+    <th class="noimp">S N</th>
+    <th class="noimp">Id</th>
+    <th class="noimp">Full Name</th>
     <th>E-mail</th>
-    <th>Phone</th>
-    <th>Gender</th>
-    <th>City</th>
-    <th>Role</th>
-    <th>Data & Time</th>
-    <th>Update</th>
-    <th>Delete</th>
+    <th class="noimp">Phone</th>
+    <th class="noimp">Gender</th>
+    <th class="noimp">City</th>
+    <th class="noimp">Role</th>
+    <th class="noimp">Data & Time</th>
+    <th class="noimp">Update</th>
+    <th class="noimp">Delete</th>
   </tr>
 <?php
     $sn=1;
 while($row = $sql->fetch()){
 ?>
   <tr>
-    <td><?=$sn++?></td>
-    <td>RG0<?=$row['id']?></td>
-    <td><?=$row["fname"]." ".$row["lname"]?></td>
+    <td class="noimp">&nbsp;&nbsp;<?=$sn++?></td>
+    <td class="noimp">RG0<?=$row['id']?></td>
+    <td class="noimp"><?=$row["fname"]." ".$row["lname"]?></td>
     <td><?=$row['email']?></td>
-    <td><?=$row["phone"]?></td>
-    <td><?=$row["gender"]?></td>
-    <td><?=$row["location"]?></td>
-    <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
-    <td><?=$row["dt"]?></td>
-    <td><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
+    <td class="noimp"><?=$row["phone"]?></td>
+    <td class="noimp"><?=$row["gender"]?></td>
+    <td class="noimp"><?=$row["location"]?></td>
+    <td class="noimp"><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
+    <td class="noimp"><?=$row["dt"]?></td>
+    <td class="noimp"><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
-    <td><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
+    <td class="noimp"><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
     <?php } ?>
 
  </tr>
