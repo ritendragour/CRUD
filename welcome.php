@@ -66,6 +66,9 @@ if($password !=$cpassword){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <style>
+        *{
+            border:1px solid red;
+        }
     body {
     height: 100vh;
     width: 100vw;

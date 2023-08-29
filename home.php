@@ -16,13 +16,25 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <title>Home</title>
 
     <style>
+        *{
+            /* border:1px solid red; */
+        }
+        body{
+            background-image:url('./logo.jpg');
+            background-size:cover;
+            /* background-position:center; */
+            color:white;
+        }
+        .user_hello{
+            font-size:50px;            
+        }
         .loginHeader {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color:#007bff;
-        color:white;
-        padding: 5px 30px;
+            display: flex;
+            /* align-items: center; */
+            justify-content: space-between;
+            background-color:#007bff;
+            color:white;
+            padding: 5px 30px;
         }
         a{
             text-decoration: none;
@@ -33,25 +45,26 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             color:white;
         }
         .seoc{
-            background-image:url('https://images.pexels.com/photos/17748598/pexels-photo-17748598/free-photo-of-brick-wall.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load');
-            background-size:cover;
-            height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: right;
-            padding-right: 400px;
+            justify-content: space-evenly;
+            background-color:rgba(1,1,1,0.6);
+
         }
         .seoc a{
-            font-size: 32px;
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
     <div class="loginHeader">
         <a href="#"><h2>Company name </h2></a>
-        <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo$_SESSION['fullname']." !";?></a></button>
+        <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo"(".$_SESSION['fullname'].")";?></a></button>
     </div>
+   
     <div class="seoc">
+        <p></p>
+    <h1 class="user_hello">Hello <?php echo$_SESSION['fullname']." !";?></h1>
         <?php if($role!="0"){ ?>
         <a href="../ri/user.php" class="btn btn-light">Updated All Data</a>
         <?php } else{ ?>
