@@ -61,15 +61,32 @@
             padding: 5px 20px;
             font-size: large;
             width: 20%;
+            font-family: revert;
         }
         input,select{
             padding: 8px 10px;
         }
         form h2{
             display: flex;
+            padding-bottom: 5px;
             border-bottom: 1px solid white;
             justify-content: center;
             margin-bottom: 15px;
+        }
+        .loginsection{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            margin-top:5px;
+        }
+        .loginbtn{   
+            background-color: darkorange;
+            display: flex;
+            color: white;
+            width: 25%;
+            justify-content: center;
+            padding: 5px;
+            text-decoration: none;
         }
         /* common classes */
         .df{
@@ -99,6 +116,10 @@
 	<div class="main-container">
 		<form action="welcome.php" method="post">
 			<h2>Testing Version 2.0</h2>
+            <div class="loginsection">
+
+                <a href='../ri/loginform.php' class='loginbtn'>> > log In </a>
+            </div>
 
 			<label for="">Full Name</label>
 			
@@ -133,11 +154,7 @@
             <input type="hidden" name="role" value="0">
            <!-- End hidden field -->
             <div class="sub-con">
-                <div class="df">
                     <input type="submit" class="submit w-50 btn-success" style="background-color:green;" value="Sign Up">
-                    
-                    <a href='../ri/loginform.php' class=' submit w-50' > Go log In </a>
-                </div>
 		    </div>
 		</form>
 	</div>
