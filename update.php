@@ -146,22 +146,21 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 <!--Start  role -->
             <?php if($role!="0"){?>
                 <div class="df">
-
                     <label for="">Role</label>
                     <p class="text-danger text-right"><?php echo"Old value : ";
                     if($sql['role']=="0"){ echo "User";}else{ echo"Admin"; }?></p>
                 </div>
-
+                
 				<select name="role" value="<?=$sql['role']?>">
 					<option value="0">User</option>
 					<option value="10">Admin</option>
 				</select>
                 <!--END role -->
-            <?php } ?>
+                <?php } ?>
 
-			<label for="">Location</label>
-			<textarea type="text" name="location" value="<?=$sql['location']?>" placeholder="location"></textarea>
-			
+			<label for="">City</label>
+			<input type="text" name="location" value="<?=$sql['location']?>" placeholder="City" maxlength="12">
+
 			<input type="submit" value="Update" class="mt-2 btn btn-primary w-50">
 		</form>
 	</div>

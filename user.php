@@ -78,7 +78,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     </div>
     <script>
         function deleteFun() {
-        if(confirm("Are you sure to Delete All Data Including your you also ?")){
+        if(confirm("Are you sure to Delete All Data Including you are also ?")){
             window.location.href = './deleteall.php';
         }else{
             window.location.href = '../ri/user.php';
@@ -90,28 +90,31 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         ?>
     <table>
   <tr>
+    <th>S N</th>
     <th>Id</th>
-    <th>First Name</th>
-    <th>Last Name</th>
+    <th>Full Name</th>
     <th>E-mail</th>
     <th>Phone</th>
     <th>Gender</th>
-    <th>Location</th>
+    <th>City</th>
+    <th>Role</th>
     <th>Data & Time</th>
     <th>Update</th>
     <th>Delete</th>
   </tr>
 <?php
+    $sn=1;
 while($row = $sql->fetch()){
 ?>
   <tr>
+    <td><?=$sn++?></td>
     <td>RG0<?=$row['id']?></td>
-    <td><?=$row["fname"]?></td>
-    <td><?=$row["lname"]?></td>
+    <td><?=$row["fname"]." ".$row["lname"]?></td>
     <td><?=$row['email']?></td>
     <td><?=$row["phone"]?></td>
     <td><?=$row["gender"]?></td>
     <td><?=$row["location"]?></td>
+    <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td><?=$row["dt"]?></td>
     <td><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>

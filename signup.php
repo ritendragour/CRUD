@@ -1,3 +1,5 @@
+<!-- Location = city -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,10 +127,10 @@
 				<option value="Other">Other</option>
 			</select>
 
-			<label for="">Location</label>
-			<textarea  name="location" placeholder="Enter your Location" rows="4" cols="50" style="padding:2px"></textarea >
-		   <!-- Start hidden field-->
-           <input type="hidden" name="role" value="0">
+			<label for="">City</label>
+			<input  name="location" placeholder="Enter City Name"  maxlength="12">
+    	   <!-- Start hidden field-->
+            <input type="hidden" name="role" value="0">
            <!-- End hidden field -->
             <div class="sub-con">
                 <div class="df">
