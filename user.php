@@ -56,10 +56,27 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         align-items: center;
         justify-content: center;
         height: 100vh;
+    } 
+    @media(max-width:385px){
+        .main-container {
+            flex-direction: column;
+            padding: 5px;
+        } 
+        .impcloumn{
+            display:none !important;
+        }
     }
+    @media(max-width:450px){ 
+        .main-container {
+            padding: 5px;
+        }   
+        }
     @media(max-width:775px){
         .noimp{
             display: none;
+        }
+        .impcloumn{
+            display:block;
         }
     }
     @media(max-width:1440px){
@@ -106,7 +123,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <table>
   <tr>
     <th class="noimp">S N</th>
-    <th class="noimp">Id</th>
+    <th class="noimp impcloumn">Id</th>
     <th>Full Name</th>
     <th class="noimp">E-mail</th>
     <th class="noimp">Phone</th>
@@ -115,7 +132,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <th>Role</th>
     <th class="noimp">Data & Time</th>
     <th>Update</th>
-    <th class="noimp">Delete</th>
+    <th class="noimp impcloumn">Delete</th>
   </tr>
 <?php
     $sn=1;
@@ -123,7 +140,7 @@ while($row = $sql->fetch()){
 ?>
   <tr>
     <td class="noimp">&nbsp;&nbsp;<?=$sn++?></td>
-    <td class="noimp">RG0<?=$row['id']?></td>
+    <td class="noimp impcloumn">RG0<?=$row['id']?></td>
     <td><?=$row["fname"]." ".$row["lname"]?></td>
     <td class="noimp"><?=$row['email']?></td>
     <td class="noimp"><?=$row["phone"]?></td>
@@ -133,7 +150,7 @@ while($row = $sql->fetch()){
     <td class="noimp"><?=$row["dt"]?></td>
     <td><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
-    <td class="noimp"><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
+    <td class="noimp impcloumn"><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
     <?php } ?>
 
  </tr>
