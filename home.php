@@ -59,7 +59,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 <body>
     <div class="loginHeader">
         <a href="#"><h2>Company name </h2></a>
-        <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo"(".$_SESSION['fullname'].")";?></a></button>
+        <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
     </div>
    
     <div class="seoc">

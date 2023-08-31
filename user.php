@@ -55,6 +55,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        width: 100vw;
         height: 100vh;
     } 
     @media(max-width:385px){
@@ -97,12 +98,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         <!-- admin -->
         <?php if($role!="0"){?>
         <button onclick="deleteFun()" class="btn btn-light noimp">Delete All</button>
-        <?php }
-        // user
-        else{ ?>
-        <button class="btn btn-warning"><a href="../ri/logout.php" class="logoutbtn">
-            logout <?php echo$_SESSION['fullname']." !";?></a></button>
-        <?php } ?>
+        <?php }?>
 
         <button class="btn btn-warning"><a href="../ri/logout.php"
         style="text-decoration: none;color: black;">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
@@ -158,8 +154,13 @@ while($row = $sql->fetch()){
 } 
 // role else
 }else{
-
-    echo"<div class='notaadmin'><h1>Your not a admin.</h1> <h2>That why you can't see any details</h2></div>";
+    echo"<div class='notaadmin'>
+            <h1>You are not an Admin.</h1>
+            <h2>That's why you can't see any details</h2>
+            <a href='mailto:ritendragour5@gmail.com' class='logoutbtn'>
+            <h3 class='text-danger'>Want to see details? So Please contact the administrator.</h3>
+            </a>
+        </div>";
 }
 ?>
 </table>
