@@ -4,10 +4,23 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
-
-    $sqlLogin= $conn->query("SELECT * FROM `info` WHERE `email`= '$email' && `password` = '$password'")->fetch();
     
-    if($sqlLogin){
+    $sqlLogin= $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->fetch();
+    
+    $checkpassword = password_verify($password, $sqlLogin['password']);
+
+if($checkpassword === false){
+    ?>
+    <script>
+        alret("Password is not right");
+</script>
+
+    <?php
+    header('location:loginform.php');
+}
+
+
+    if($checkpassword){
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['role'] = $sqlLogin['role'];
