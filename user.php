@@ -57,8 +57,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         justify-content: center;
         height: 100vh;
     }
-    @media(max-width:1440px){
+    @media(max-width:775px){
         .noimp{
+            display: none;
+        }
+    }
+    @media(max-width:1440px){
+        .noimp:nth-child(even){
             display: none;
         }
     }
@@ -72,9 +77,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <div class="main-container">
         <a href="../ri/home.php" style="text-decoration: none;"><h2>Company Name</h2></a>
         
+        <!-- admin -->
         <?php if($role!="0"){?>
-        <button onclick="deleteFun()" class="btn btn-info noimp">Delete All</button>
-        <?php }else{ ?>
+        <button onclick="deleteFun()" class="btn btn-light noimp">Delete All</button>
+        <?php }
+        // user
+        else{ ?>
         <button class="btn btn-warning"><a href="../ri/logout.php" class="logoutbtn">
             logout <?php echo$_SESSION['fullname']." !";?></a></button>
         <?php } ?>
@@ -99,14 +107,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
   <tr>
     <th class="noimp">S N</th>
     <th class="noimp">Id</th>
-    <th class="noimp">Full Name</th>
-    <th>E-mail</th>
+    <th>Full Name</th>
+    <th class="noimp">E-mail</th>
     <th class="noimp">Phone</th>
     <th class="noimp">Gender</th>
     <th class="noimp">City</th>
-    <th class="noimp">Role</th>
+    <th>Role</th>
     <th class="noimp">Data & Time</th>
-    <th class="noimp">Update</th>
+    <th>Update</th>
     <th class="noimp">Delete</th>
   </tr>
 <?php
@@ -116,14 +124,14 @@ while($row = $sql->fetch()){
   <tr>
     <td class="noimp">&nbsp;&nbsp;<?=$sn++?></td>
     <td class="noimp">RG0<?=$row['id']?></td>
-    <td class="noimp"><?=$row["fname"]." ".$row["lname"]?></td>
-    <td><?=$row['email']?></td>
+    <td><?=$row["fname"]." ".$row["lname"]?></td>
+    <td class="noimp"><?=$row['email']?></td>
     <td class="noimp"><?=$row["phone"]?></td>
     <td class="noimp"><?=$row["gender"]?></td>
     <td class="noimp"><?=$row["location"]?></td>
-    <td class="noimp"><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
+    <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td class="noimp"><?=$row["dt"]?></td>
-    <td class="noimp"><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
+    <td><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
     <td class="noimp"><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
     <?php } ?>
