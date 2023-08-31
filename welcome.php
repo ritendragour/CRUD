@@ -8,7 +8,10 @@ $gender= $_POST['gender'];
 $location= $_POST['location'];
 $password= $_POST['password'];
 $cpassword= $_POST['cpassword'];
-$role=$_POST['role'];
+$role= $_POST['role'];
+
+$passwordHash = password_hash($password, PASSWORD_BCRYPT);
+
 
 if($password !=$cpassword){
     ?>
@@ -20,7 +23,7 @@ if($password !=$cpassword){
     <?php
 }else{
 
-    if(isset($_POST['email'])){
+    if(isset($email)){
 
         $checkDupalicateEntry = $conn->query("SELECT email FROM `info` WHERE email= '$email'")->fetch();
         
@@ -39,8 +42,14 @@ if($password !=$cpassword){
         }
         else{
             $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`, `location`,`password`,`role`)
-         VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$password','$role')");
+         VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$passwordHash','$role')");
           ?>
+          <style>
+                body {
+                     background-image: url("https://images.pexels.com/photos/4065876/pexels-photo-4065876.jpeg?auto=compress&cs=tinysrgb&w=600") !important;
+                     background-size: cover;
+                    }
+          </style>
           <div class="textareause">
 
               <h1>Hello <?=$FirstName." ".$LastName?> </h1>
