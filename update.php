@@ -6,8 +6,22 @@ session_start();
 // print_r();die;
 if(!isset($_GET['pf'])){
     $pf= false;
+    ?>
+    <style>
+        .chnagedn{
+        display: block;
+        }
+    </style>
+    <?php
 }else{
     $pf = $_GET['pf'];
+    ?>
+    <style>
+        .chnagedn{
+        display: none;
+        }
+    </style>
+    <?php
 }
 $id = $_GET['id'];
 if(!$pf){
@@ -130,44 +144,45 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 <body>
     <div class="main-container">  
         <form action="editfile.php?id=<?=$id?>" method="post">
-    <?php if(!$pf){ ?>
             <div class="titlehead">
-                <a href="home.php" class="btn btn-light">< < &nbsp;Back Home</a>
+                
+                <a href="home.php" class="btn btn-light chnagedn">< < &nbsp;Back Home</a>
+                
                 <h2>Testing Version 2.0</h2>
                 <p>&nbsp;</p>
             </div>
-			<label for="">Full Name</label>
-			<div class="df">
-				<input type="text" name="fname" value="<?=$sql['fname']?>" class="w-50" placeholder="First Name">
-				<input type="text" name="lname" value="<?=$sql['lname']?>" class="w-50" placeholder="Last Name">
+			<label for="" class="chnagedn">Full Name</label>
+			<div class="df chnagedn" >
+				<input type="text" name="fname" value="<?=$sql['fname']?>" class="w-50 chnagedn" placeholder="First Name">
+				<input type="text" name="lname" value="<?=$sql['lname']?>" class="w-50 chnagedn" placeholder="Last Name">
 			</div>
 		<!--  -->
-			<label for="">E-mail	</label>
-			<input type="email" name="email" value="<?=$sql['email']?>" placeholder="E-mail">
+			<label for="" class="chnagedn">E-mail	</label>
+			<input type="email" class="chnagedn" name="email" value="<?=$sql['email']?>" placeholder="E-mail">
 
-			<label for="">Phone</label>
-			<input type="text" name="phone" value="<?=$sql['phone']?>" placeholder="Enter Phone">
-    <?php } ?>
-			<label for="">Password</label>
-			<input type="password" name="password" id="pass" value="<?=$sql['password']?>" 
+			<label for="" class="chnagedn">Phone</label>
+			<input type="text" class="chnagedn" name="phone" value="<?=$sql['phone']?>" placeholder="Enter Phone">
+			<label for="" >Password</label>
+			<input type="password" name="password" id="pass" 
             minlength="8" placeholder="Enter Password">
             <div class="sp">
                 <input type="checkbox" onclick="validateForm()">
                 <p class="ifp" style="margin-bottom:0px">&nbsp;Show Password</p>
             </div>
-     <?php if(!$pf){ ?>
 
-            <div class="df">
-                <label for="">Gender</label>
-                <p class="text-danger text-right"><?="Old value : ".$sql['gender']?></p>
+            <div class="df chnagedn">
+                <label for="" class="chnagedn">Gender</label>
+                <p class="text-danger text-right chnagedn" ><?="Old value : ".$sql['gender']?></p>
             </div>
 
-				<select name="gender" placeholder="gender">
+				<select name="gender" placeholder="gender" class="chnagedn">
 					<option value="Male">Male</option>
 					<option value="Female">Female</option>
 					<option value="Other">Other</option>
 				</select>
                 <!--Start  role -->
+        <?php if(!$pf){ ?>
+
             <?php if($role!="0"){?>
                 <div class="df">
                     <label for="">Role</label>
@@ -180,12 +195,16 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 					<option value="10">Admin</option>
 				</select>
                 <!--END role -->
-    <?php } ?>
+        <?php }
+    }else{
+        ?>
+        <a href="login.php"> Home</a>
+        <?php
+    } ?>
 
-			<label for="">City</label>
-			<input type="text" name="location" value="<?=$sql['location']?>" placeholder="City" maxlength="12">
+			<label for="" class="chnagedn">City</label>
+			<input type="text" class="chnagedn" name="location" value="<?=$sql['location']?>" placeholder="City" maxlength="12">
             <?php 
-            }
             if(!$pf){
                 $changeandupdate="Update";
             }else{
