@@ -59,16 +59,16 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 <body>
     <div class="loginHeader">
         <a href="#"><h2>Company name </h2></a>
-        <button class="btn btn-warning"><a href="../ri/logout.php">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
+        <button class="btn btn-warning"><a href="logout.php">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
     </div>
    
     <div class="seoc">
         <p></p>
     <h1 class="user_hello">Hello <?php echo$_SESSION['fullname']." !";?></h1>
         <?php if($role!="0"){ ?>
-        <a href="../ri/user.php" class="btn btn-light">Updated All Data</a>
+        <a href="user.php" class="btn btn-light">Updated All Data</a>
         <?php } else{ ?>
-        <a href="../ri/update.php?id=<?=$id?>" class="btn btn-light">Updated data</a>
+        <a href="update.php?id=<?=$id?>" class="btn btn-light">Updated data</a>
 
         <?php } ?>
     </div>

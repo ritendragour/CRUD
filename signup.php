@@ -131,7 +131,7 @@
 		<form action="welcome.php" method="post">
 			<h2>Testing Version 2.0</h2>
             <div class="loginsection">
-                <a href='../ri/loginform.php' class='loginbtn'>> > log In </a>
+                <a href='loginform.php' class='loginbtn'>> > log In </a>
             </div>
 			<label for="" style="margin-top:0px;">Full Name <span style="color:red;">*</span></label>
 			<div class="df">

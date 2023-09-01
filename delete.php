@@ -5,6 +5,6 @@ $delete = $conn->query("DELETE FROM `info` WHERE id= ".$id."");
 ?>
 <script>
     alert('Item was deleted');
-    window.location.href = "../ri/user.php";
+    window.location.href = "user.php";
 </script>
-<a href="../ri/signup.php">Home</a>
+<a href="signup.php">Home</a>

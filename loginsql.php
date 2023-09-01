@@ -16,7 +16,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION['id'] = $sqlLogin['id'];
         $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];  
         header('location:home.php');
-        
     }else{
         ?>
         <style>
@@ -48,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </style>
         <div class="main-container">
             <h1>Invalid Login</h1>
-            <a href='../ri/loginform.php' class='submit btn btn-light btn-lg'>Try Again</a>
+            <a href='loginform.php' class='submit btn btn-light btn-lg'>Try Again</a>
         </div>
         <?php
         

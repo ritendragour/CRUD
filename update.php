@@ -122,7 +122,7 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 		
 		<form action="editfile.php?id=<?=$id?>" method="post">
         <div class="titlehead">
-            <a href="../ri/home.php" class="btn btn-light">< < &nbsp;Back Home</a>
+            <a href="home.php" class="btn btn-light">< < &nbsp;Back Home</a>
             <h2>Testing Version 2.0</h2>
             <p>&nbsp;</p>
         </div>

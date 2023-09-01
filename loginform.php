@@ -67,7 +67,7 @@ include('db.php');
     <span>
         <h1>Testing Version 2.0</h1>
         <form action="loginsql.php" method="post">
-          <a href='../ri/signup.php' class="btn btn-warning w-100">Sign Up</a>
+          <a href='signup.php' class="btn btn-warning w-100">Sign Up</a>
             <div class="form-group mt-3">
               <label for="exampleInputEmail1">Email address</label>
               <input type="email" class="form-control" name="email" placeholder="Enter email" required>

@@ -17,7 +17,7 @@ if($password !=$cpassword){
     ?>
     <div class="textareause">
     <h2 style="font-size: 48px; color:red">Password does not match</h2>
-        <a href='../ri/signup.php' class="btn btn-dark btn-lg mt-3" 
+        <a href='signup.php' class="btn btn-dark btn-lg mt-3" 
         style="text-decoration: none;color: white;">Sign Up </a>
     </div>
     <?php
@@ -35,7 +35,7 @@ if($password !=$cpassword){
             ?>
             This E-mail is already register</h2>
             <h2 style="font-size: 48px;">Please Try Agian later</h2>
-                <a href='../ri/signup.php' class="btn btn-dark btn-lg mt-3" 
+                <a href='signup.php' class="btn btn-dark btn-lg mt-3" 
                 style="text-decoration: none;color: white;">Sign Up </a>
             </div>
             <?php
@@ -55,7 +55,7 @@ if($password !=$cpassword){
               <h1>Hello <?=$FirstName." ".$LastName?> </h1>
               <h2> Congratulations Successfully register your Email </h2>
               <h2>"<?=$email?>"</h2>
-              <button class="btn btn-dark text-light btn-lg w-25"><a href='../ri/loginform.php' 
+              <button class="btn btn-dark text-light btn-lg w-25"><a href='loginform.php' 
               style="text-decoration: none;color: white;font-size: 28px;">login</a></button>
             
             </div>

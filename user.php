@@ -5,7 +5,7 @@ $role= $_SESSION['role'];
 
 // 0 = user, 10 = admin
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
-    header("Location: ../ri/signup.php");
+    header("Location: signup.php");
 
 }else{
 
@@ -93,14 +93,14 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         $sql = $conn->query("SELECT * FROM info");
     ?>
     <div class="main-container">
-        <a href="../ri/home.php" style="text-decoration: none;"><h2>Company Name</h2></a>
+        <a href="home.php" style="text-decoration: none;"><h2>Company Name</h2></a>
         
         <!-- admin -->
         <?php if($role!="0"){?>
         <button onclick="deleteFun()" class="btn btn-light noimp">Delete All</button>
         <?php }?>
 
-        <button class="btn btn-warning"><a href="../ri/logout.php"
+        <button class="btn btn-warning"><a href="logout.php"
         style="text-decoration: none;color: black;">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
 
     </div>
@@ -109,7 +109,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         if(confirm("Are you sure to Delete All Data Including you are also ?")){
             window.location.href = './deleteall.php';
         }else{
-            window.location.href = '../ri/user.php';
+            window.location.href = 'user.php';
         }
     }
     </script>
@@ -144,9 +144,9 @@ while($row = $sql->fetch()){
     <td class="noimp"><?=$row["location"]?></td>
     <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td class="noimp"><?=$row["dt"]?></td>
-    <td><?="<a href='../ri/update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
+    <td><?="<a href='update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
-    <td class="noimp impcloumn"><?="<a href='../ri/delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
+    <td class="noimp impcloumn"><?="<a href='delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
     <?php } ?>
 
  </tr>

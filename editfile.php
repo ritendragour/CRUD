@@ -18,9 +18,9 @@ session_start();
     `password`='$password',`role`='$role' WHERE id=$id");
 
    if($role_session!="0"){
-         header('location:../ri/user.php');
+         header('location:user.php');
     }else{
-         header('location:../ri/home.php');
+         header('location:home.php');
 
     }
 
