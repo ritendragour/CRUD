@@ -65,12 +65,17 @@
         input,select{
             padding: 8px 10px;
         }
+        form a{
+            text-decoration: none;
+            color:white;
+        }
         form h2{
             display: flex;
             padding-bottom: 5px;
             border-bottom: 1px solid white;
             justify-content: center;
             margin-bottom: 15px;
+            background-color:black;
         }
         .loginsection{
             display: flex;
@@ -128,7 +133,7 @@
 <body>
 	<div class="main-container">
 		<form action="welcome.php" method="post">
-			<h2>Testing Version 2.0</h2>
+            <a href="login.php"><h2>Testing Version</h2></a>
             <div class="loginsection">
                 <a href='login.php' class='loginbtn'>> > log In </a>
             </div>

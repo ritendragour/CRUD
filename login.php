@@ -64,7 +64,7 @@ include('db.php');
       <img src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" alt="">
     </div>
     <span>
-        <h1><?=$company_name?></h1>
+    <a href="login.php" style="text-decoration: none;"><h1><?=$company_name?></h1></a>
         <form action="loginsql.php" method="post">
           <a href='signup.php' class="btn btn-warning w-100">Sign Up</a>
             <div class="form-group mt-3">
