@@ -47,7 +47,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </style>
         <div class="main-container">
             <h1>Invalid Login</h1>
-            <a href='loginform.php' class='submit btn btn-light btn-lg'>Try Again</a>
+            <a href='login.php' class='submit btn btn-light btn-lg'>Try Again</a>
         </div>
         <?php
         

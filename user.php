@@ -93,7 +93,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         $sql = $conn->query("SELECT * FROM info");
     ?>
     <div class="main-container">
-        <a href="home.php" style="text-decoration: none;"><h2>Company Name</h2></a>
+        <a href="home.php" style="text-decoration: none;"><h2><?=$company_name?></h2></a>
         
         <!-- admin -->
         <?php if($role!="0"){?>

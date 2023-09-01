@@ -1,6 +1,10 @@
 <?php
 $db_name = "mysql:host=localhost;dbname=test";
 $conn = new PDO($db_name,"root","");
+
+// Company Name
+$company_name = $conn->query("SELECT `company_name` FROM systemconfig WHERE id='1'")->fetch()['company_name'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
