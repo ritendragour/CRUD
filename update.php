@@ -1,8 +1,18 @@
 <?php
 include('db.php');
 session_start();
-$role= $_SESSION['role'];
+
+// Get method 
+// print_r();die;
+if(!isset($_GET['pf'])){
+    $pf= false;
+}else{
+    $pf = $_GET['pf'];
+}
 $id = $_GET['id'];
+if(!$pf){
+    $role= $_SESSION['role'];
+}
 $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 ?>
 <!DOCTYPE html>
@@ -118,14 +128,14 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 </style>
 </head>
 <body>
-	<div class="main-container">
-		
-		<form action="editfile.php?id=<?=$id?>" method="post">
-        <div class="titlehead">
-            <a href="home.php" class="btn btn-light">< < &nbsp;Back Home</a>
-            <h2>Testing Version 2.0</h2>
-            <p>&nbsp;</p>
-        </div>
+    <div class="main-container">  
+        <form action="editfile.php?id=<?=$id?>" method="post">
+    <?php if(!$pf){ ?>
+            <div class="titlehead">
+                <a href="home.php" class="btn btn-light">< < &nbsp;Back Home</a>
+                <h2>Testing Version 2.0</h2>
+                <p>&nbsp;</p>
+            </div>
 			<label for="">Full Name</label>
 			<div class="df">
 				<input type="text" name="fname" value="<?=$sql['fname']?>" class="w-50" placeholder="First Name">
@@ -137,7 +147,7 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 
 			<label for="">Phone</label>
 			<input type="text" name="phone" value="<?=$sql['phone']?>" placeholder="Enter Phone">
-
+    <?php } ?>
 			<label for="">Password</label>
 			<input type="password" name="password" id="pass" value="<?=$sql['password']?>" 
             minlength="8" placeholder="Enter Password">
@@ -145,6 +155,7 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 <input type="checkbox" onclick="validateForm()">
                 <p class="ifp" style="margin-bottom:0px">&nbsp;Show Password</p>
             </div>
+     <?php if(!$pf){ ?>
 
             <div class="df">
                 <label for="">Gender</label>
@@ -169,12 +180,19 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 					<option value="10">Admin</option>
 				</select>
                 <!--END role -->
-                <?php } ?>
+    <?php } ?>
 
 			<label for="">City</label>
 			<input type="text" name="location" value="<?=$sql['location']?>" placeholder="City" maxlength="12">
-
-			<input type="submit" value="Update" class="mt-2 btn btn-primary w-50">
+            <?php 
+            }
+            if(!$pf){
+                $changeandupdate="Update";
+            }else{
+                $changeandupdate="Change";
+            }            
+            ?>
+			<input type="submit" value="<?=$changeandupdate?>" class="mt-2 btn btn-primary w-50">
 		</form>
 	</div>
     <script>

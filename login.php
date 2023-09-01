@@ -75,6 +75,9 @@ include('db.php');
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" name="password"placeholder="Password" required>
             </div>
+            <div>
+              <a href="pforward.php">Password Forward</a>
+            </div>
             <button type="submit" class="btn btn-info mt-3 w-50">Log In</button>
       </form>
     </span>
