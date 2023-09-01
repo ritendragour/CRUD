@@ -9,17 +9,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     
     $checkpassword = password_verify($password, $sqlLogin['password']);
 
-if($checkpassword === false){
-    ?>
-    <script>
-        alret("Password is not right");
-</script>
-
-    <?php
-    header('location:loginform.php');
-}
-
-
     if($checkpassword){
         session_start();
         $_SESSION['loggedin'] = true;
@@ -34,16 +23,13 @@ if($checkpassword === false){
             .main-container{
                 display: flex;
                 flex-direction: column;
-                justify-content: space-between;
                 align-items: center;
                 justify-content: center;
-                background-image: url('https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=600');
+                background-image: url("https://c8.alamy.com/comp/ECMD14/hand-pushing-virtual-security-button-on-digital-background-ECMD14.jpg") ;
                 background-position: center;
                 background-size: cover;
                 width: 100%;
                 height: 100vh;
-                font-size: 24px;
-                font-weight: 600;
             }
             a{
                 display: flex;
@@ -51,6 +37,13 @@ if($checkpassword === false){
                 justify-content: center;
                 text-decoration: none;
                 border: 2px solid black;
+                font-weight: 700;
+            }
+            h1{
+                padding: 5px 10px;
+                font-size: 64px;
+                color: red;
+                background-color: rgb(255,255,255,0.8);
             }
         </style>
         <div class="main-container">

@@ -16,7 +16,7 @@ $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 if($password !=$cpassword){
     ?>
     <div class="textareause">
-    <h2 style="font-size: 48px;" class="text-danger">Password does not match</h2>
+    <h2 style="font-size: 48px; color:red">Password does not match</h2>
         <a href='../ri/signup.php' class="btn btn-dark btn-lg mt-3" 
         style="text-decoration: none;color: white;">Sign Up </a>
     </div>
