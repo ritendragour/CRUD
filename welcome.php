@@ -55,7 +55,7 @@ if($password !=$cpassword){
               <h1>Hello <?=$FirstName." ".$LastName?> </h1>
               <h2> Congratulations Successfully register your Email </h2>
               <h2>"<?=$email?>"</h2>
-              <button class="btn btn-dark text-light btn-lg w-25"><a href='loginform.php' 
+              <button class="btn btn-dark text-light btn-lg w-25"><a href='login.php' 
               style="text-decoration: none;color: white;font-size: 28px;">login</a></button>
             
             </div>
