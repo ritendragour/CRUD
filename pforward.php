@@ -1,25 +1,22 @@
 <?php
 
 include('db.php');
-if(isset($_GET['submit'])){
-$email = $_GET['email'];
+if(isset($_POST['submit'])){
+$email = $_POST['email'];
 
 $sqlcheckemail = $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->fetch();
-$sqlid= $sqlcheckemail['id'];
 
-    if($sqlcheckemail){
-        $pf= "true";
-        header("location:update.php?id=$sqlid&pf=$pf");
+if($sqlcheckemail){
+        $securityquestion = $sqlcheckemail['securityquestion'];
+        $accessemail = $sqlcheckemail['email'];
+        header("location:passwordverify.php?securityquestion=$securityquestion&accessemail=$accessemail");
     }else{
-    ?>
-        <script>
+    ?><script>
             alert("wrong Email");
-        </script>
-    <?php
+        </script><?php
     }
 }
     ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,12 +25,10 @@ $sqlid= $sqlcheckemail['id'];
     <title>Password forward</title>
 </head>
 <body>
-        <form method="get" class="df">
+        <form method="post" class="df">
             <h2>Email</h2>
             <input type="email" class="form-control mt-2" name="email" placeholder="Enter Email">
             <input type="submit" class="btn btn-success mt-3" name="submit" value="Find">
         </form>
 </body>
 </html>
-
-<script>

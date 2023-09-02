@@ -50,7 +50,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            /* margin-top: 5px; */
+            margin-top: 10px;
             align-items: center;
         }
         .submit{
@@ -98,11 +98,11 @@
             width: 100%;
         }
         .w-50{
-            width: 48%;
+            width: 49%;
         }
         .sp{
             display: flex;
-            justify-content: flex-end;
+            /* justify-content: flex-end; */
             font-size: small;
             color:red;
             margin-top: 5px;
@@ -120,10 +120,8 @@
         @media(max-width:1200px){ 
         .main-container {
             height: auto;
-        }
-        }
-        @media(max-width:1200px){
-            form{
+            }
+        form{
                 width: 100vw;
                 padding: 20px;
             }
@@ -143,15 +141,22 @@
 	
 					<input type="text" name="lname" placeholder="Last Name" class="w-50">
 			</div>
-
-			<label for="">E-mail <span style="color:red;">*</span></label>
-				<input type="email" name="email" placeholder="Enter E-mail" required>
-
-			<label for="">Phone</label>
-				<input type="text" name="phone" placeholder="Enter Phone number ex. +91 9876543210">
-
+            
+<!--  -->
+            <div class="df">
+                    <div class="sub-df" style="width: 49%;">
+                    <label for="">E-mail <span style="color:red;">*</span></label>
+				    <input type="email" name="email" placeholder="Enter E-mail" required>
+                </div>
+                
+                <div class="sub-df" style="width: 49%;">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" placeholder="Enter Phone number ex. +91 9876543210">
+                </div>
+            </div>
+<!--  -->
                 <div class="df">
-                    <div class="sub-df" style="width: 30%;">
+                    <div class="sub-df" style="width: 49%;">
                         <label for="">Gender</label>
                         <select name="gender" required>
                             <option value="Male">Male</option>
@@ -159,31 +164,67 @@
                             <option value="Other">Other</option>
                         </select>
                 </div>
+                <div class="sub-df" style="width: 49%;">
+                    <label for=""> Birth date <span style="color:red;">*</span></label>
+                    <input type="date" name="birthdate" placeholder="Enter Security Question"  maxlength="12" required>
+                </div>
+
+            </div>
+
+            <!-- security Start -->
+            <div class="df">
+                    <div class="sub-df" style="width: 49%;">
+                    <label for="">Security Question<span style="color:red;">*</span></label>
+                    <input type="text" name="securityquestion" placeholder="Enter Security Question"  maxlength="12" required>
+                </div>
                 
-                <div class="sub-df" style="width: 65%;">
-                    <label for="">City</label>
-                    <input  name="location" placeholder="Enter City Name"  maxlength="12">
+                <div class="sub-df" style="width: 49%;">
+                    <label for="">Security Answer<span style="color:red;">*</span>&nbsp;</label>
+                    <input type="text" name="securityanswer" placeholder="Enter Security Answer"  maxlength="12" required>
                 </div>
             </div>
+            <!-- security END -->
             
-            <label for="">Password <span style="color:red;">*</span></label>
+            <!-- birth Start -->
+            <div class="df">
+                    
+                <div class="sub-df" style="width: 49%;">
+                    <label for="">City</label>
+                    <input type="text" name="location" placeholder="Enter City Name"  maxlength="12">
+                </div>
+                <div class="sub-df" style="width: 49%;">
+                    <label for="">Pin code </label>
+                    <input type="text" name="pincode" placeholder="Enter Security Answer"  maxlength="12">
+                </div>
+            </div>
+            <!-- security END -->
+            <!-- password start -->
+            <div class="df">
+                    <div class="sub-df" style="width: 49%;">
+                    <label for="">Password <span style="color:red;">*</span></label>
             <input type="password" name="password" placeholder="Password" id="pass" minlength="8" required >
 
-            <div class="sp">
+            <div class="sp" style="justify-content: flex-start;">
                 <input type="checkbox" onclick="validateForm()">
                 <p class="ifp">&nbsp;Show Password</p>
             </div>
-			
-			<label for="" style="margin-top:0px;">Confirm Password <span style="color:red;">*</span></label>
+                </div>
+                <!-- c pass -->
+                <div class="sub-df" style="width: 49%;">
+                <label for="" >Confirm <span style="color:red;">*</span></label>
             <input type="password" name="cpassword" placeholder="Confirm Password" id="cpass" minlength="8" required>
-            <div class="sp">
+            <div class="sp" style="justify-content: flex-end;">
                 <input type="checkbox" onclick="validateFormc()"> 
                 <p class="ifp">&nbsp;Show Password</p>
             </div>
+                </div>
+            </div>
+            <!-- password end -->
 
-    	   <!-- Start hidden field-->
+    	   <!-- Start hidden field ROLE-->
             <input type="hidden" name="role" value="0">
-           <!-- End hidden field -->
+           <!-- End hidden field ROLE-->
+
             <div class="sub-con">
                     <input type="submit" class="submit w-50 btn-success" style="background-color:green;" value="Sign Up">
 		    </div>

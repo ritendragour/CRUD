@@ -3,12 +3,11 @@ include('db.php');
 session_start();
 
 // Get method 
-// print_r();die;
 if(!isset($_GET['pf'])){
     $pf= false;
     ?>
     <style>
-        .chnagedn{
+        .changedn{
         display: block;
         }
     </style>
@@ -17,7 +16,7 @@ if(!isset($_GET['pf'])){
     $pf = $_GET['pf'];
     ?>
     <style>
-        .chnagedn{
+        .changedn{
         display: none;
         }
     </style>
@@ -105,7 +104,7 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
             width: 100%;
         }
         .w-50{
-            width: 48%  !important ;
+            width: 49%  !important ;
         }
         .df a{
             display: flex;
@@ -121,12 +120,15 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
         .sp{
             display: flex;    
             align-items: center;
-            justify-content: flex-end;
+            justify-content: flex-start;
             font-size: small;
             color:red;
             margin-top: 5px;
         }
         @media(max-width:1200px){
+            .main-container {
+            height: auto;
+            }
             form{
                 width: 100vw;
                 padding: 20px;
@@ -139,6 +141,11 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 /* justify-content: space-evenly; */
             }
         }
+        @media(max-width:550px){
+            *{
+                font-size:20px
+            }
+        }
 </style>
 </head>
 <body>
@@ -146,46 +153,92 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
         <form action="editfile.php?id=<?=$id?>" method="post">
             <div class="titlehead">
                 
-                <a href="home.php" class="btn btn-light chnagedn">< < &nbsp;Back Home</a>
+                <a href="home.php" class="btn btn-light changedn">< < &nbsp;Back Home</a>
                 
-                <h2>Testing Version 2.0</h2>
+                <h2>Testing Version</h2>
                 <p>&nbsp;</p>
             </div>
-			<label for="" class="chnagedn">Full Name</label>
-			<div class="df chnagedn" >
-				<input type="text" name="fname" value="<?=$sql['fname']?>" class="w-50 chnagedn" placeholder="First Name">
-				<input type="text" name="lname" value="<?=$sql['lname']?>" class="w-50 chnagedn" placeholder="Last Name">
+			<label for="" class="changedn">Full Name</label>
+			<div class="df changedn" >
+				<input type="text" name="fname" value="<?=$sql['fname']?>" class="w-50 changedn" placeholder="First Name">
+				<input type="text" name="lname" value="<?=$sql['lname']?>" class="w-50 changedn" placeholder="Last Name">
 			</div>
 		<!--  -->
-			<label for="" class="chnagedn">E-mail	</label>
-			<input type="email" class="chnagedn" name="email" value="<?=$sql['email']?>" placeholder="E-mail">
 
-			<label for="" class="chnagedn">Phone</label>
-			<input type="text" class="chnagedn" name="phone" value="<?=$sql['phone']?>" placeholder="Enter Phone">
-			<label for="" >Password</label>
-			<input type="password" name="password" id="pass" 
-            minlength="8" placeholder="Enter Password">
-            <div class="sp">
-                <input type="checkbox" onclick="validateForm()">
-                <p class="ifp" style="margin-bottom:0px">&nbsp;Show Password</p>
+            <!-- security Start -->
+            <div class="df">
+                <div class="sub-df" style="width: 49%;">
+                    <label for="" class="changedn">E-mail<span style="color:red;">*</span></label>
+			        <input type="email" style="width: 100%;"
+                     class="changedn" name="email" value="<?=$sql['email']?>" placeholder="E-mail">
+                </div>
+                
+                <div class="sub-df" style="width: 49%;">
+                    <label for="" class="changedn">Phone</label>
+                    <input type="text" class="changedn" style="width: 100%;"
+                    name="phone" value="<?=$sql['phone']?>" placeholder="Enter Phone">
+                </div>
+            </div>
+            <!-- security END -->
+
+            <!-- security Start -->
+            <div class="df">
+                    <div class="sub-df changedn" style="width: 49%;">
+                    <label for="">Security Question<span style="color:red;">*</span></label>
+                    <input type="text" name="securityquestion" placeholder="Enter Security Question" 
+                    style="width: 100%;" maxlength="12" value="<?=$sql['securityquestion']?>" required>
+                </div>
+                
+                <div class="sub-df changedn" style="width: 49%;" >
+                    <label for="">Security Answer <span style="color:red;">*</span>&nbsp;</label>
+                    <input type="text" name="securityanswer" placeholder="Enter Security Answer" 
+                    style="width: 100%;" maxlength="12" value="<?=$sql['securityanswer']?>" required>
+                </div>
+            </div>
+            <!-- security END -->
+            <!-- birth Start -->
+            <div class="df">
+                    
+                <div class="sub-df" style="width: 49%;">
+                    <label for="" class="changedn">City</label>
+                    <input type="text" class="changedn" name="location"
+                    style="width: 100%;" value="<?=$sql['location']?>" placeholder="City" maxlength="12">
+
+                </div>
+                <div class="sub-df changedn" style="width: 49%;">
+                    <label for="">Pin code </label>
+                    <input type="text" name="pincode" placeholder="Enter Pin Code"
+                    style="width: 100%;" maxlength="12" value="<?=$sql['pincode']?>">
+                </div>
             </div>
 
-            <div class="df chnagedn">
-                <label for="" class="chnagedn">Gender</label>
-                <p class="text-danger text-right chnagedn" ><?="Old value : ".$sql['gender']?></p>
+            <!-- security Start -->
+            <div class="df">
+                
+                <div class="sub-df" style="width: 49%;">
+                    <label for="" >Password <span style="color:red;">*</span></label>
+                    <input type="password" name="password" id="pass" 
+                    minlength="8" placeholder="Enter Password" style="width: 100%;"> 
+                    <div class="sp">
+                        <input type="checkbox" onclick="validateForm()">
+                        <p class="ifp" style="margin-bottom:0px;font-size: small;">&nbsp;Show Password</p>
+                    </div>
+                </div>
+                    <div class="sub-df changedn" style="width: 49%;">
+                    <label for=""> Birth date <span style="color:red;">*</span></label>
+                        <input type="date" name="birthdate" placeholder="Enter Security Question" 
+                        style="width: 100%;" maxlength="12" value="<?=$sql['birthdate']?>" required>
+                    </div>
             </div>
-
-				<select name="gender" placeholder="gender" class="chnagedn">
-					<option value="Male">Male</option>
-					<option value="Female">Female</option>
-					<option value="Other">Other</option>
-				</select>
+            <!-- security END -->
+         
                 <!--Start  role -->
+                
         <?php if(!$pf){ ?>
 
             <?php if($role!="0"){?>
                 <div class="df">
-                    <label for="">Role</label>
+                    <label for="">Role </label>
                     <p class="text-danger text-right"><?php echo"Old value : ";
                     if($sql['role']=="0"){ echo "User";}else{ echo"Admin"; }?></p>
                 </div>
@@ -196,14 +249,8 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
 				</select>
                 <!--END role -->
         <?php }
-    }else{
-        ?>
-        <a href="login.php"> Home</a>
-        <?php
     } ?>
 
-			<label for="" class="chnagedn">City</label>
-			<input type="text" class="chnagedn" name="location" value="<?=$sql['location']?>" placeholder="City" maxlength="12">
             <?php 
             if(!$pf){
                 $changeandupdate="Update";

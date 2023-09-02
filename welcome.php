@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+
 $FirstName= $_POST['fname'];
 $LastName= $_POST['lname'];
 $email= $_POST['email'];
@@ -9,9 +10,12 @@ $location= $_POST['location'];
 $password= $_POST['password'];
 $cpassword= $_POST['cpassword'];
 $role= $_POST['role'];
+$securityquestion= $_POST['securityquestion'];
+$securityanswer= $_POST['securityanswer'];
+$birthdate= $_POST['birthdate'];
+$pincode= $_POST['pincode'];
 
 $passwordHash = password_hash($password, PASSWORD_BCRYPT);
-
 
 if($password !=$cpassword){
     ?>
@@ -41,8 +45,10 @@ if($password !=$cpassword){
             <?php
         }
         else{
-            $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`, `location`,`password`,`role`)
-         VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location','$passwordHash','$role')");
+            $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`,
+             `location`,`password`,`role`,`securityquestion`,`securityanswer`,`birthdate`,`pincode`)
+            VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location',
+            '$passwordHash','$role','$securityquestion','$securityanswer','$birthdate','$pincode')");
           ?>
           <style>
                 body {
@@ -55,8 +61,9 @@ if($password !=$cpassword){
               <h1>Hello <?=$FirstName." ".$LastName?> </h1>
               <h2> Congratulations Successfully register your Email </h2>
               <h2>"<?=$email?>"</h2>
-              <button class="btn btn-dark text-light btn-lg w-25"><a href='login.php' 
-              style="text-decoration: none;color: white;font-size: 28px;">login</a></button>
+              <a href='login.php' 
+              style="text-decoration: none;color: white;font-size: 28px;">
+              <button class="btn btn-dark text-light btn-lg">login</button></a>
             
             </div>
           <?php
