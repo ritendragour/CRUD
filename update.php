@@ -240,8 +240,8 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 
                 <div class="sub-df" style="width: 49%;">
                     <label for="" >Password <span style="color:red;">*</span></label>
-                    <input type="password" name="password" id="pass" value="<?=$sql['password']?>"
-                    minlength="8" placeholder="Enter Password" style="width: 100%;"> 
+                    <input type="password" name="password" id="pass" minlength="8" 
+                    placeholder="Enter Password" style="width: 100%;" required> 
                     <div class="sp">
                         <input type="checkbox" onclick="validateForm()">
                         <p class="ifp" style="margin-bottom:0px;font-size: small;">&nbsp;Show Password</p>
