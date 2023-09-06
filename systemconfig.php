@@ -5,8 +5,8 @@ session_start();
 if(isset($_POST['submit'])){
     $company_name_value = $_POST['company_name'];
     $conn->query("UPDATE `systemconfig` SET `company_name`='$company_name_value' WHERE id='1'");
+    header('location:home.php');
 }
-
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +37,6 @@ if(isset($_POST['submit'])){
             flex-direction: column;
             align-items: flex-end;
             justify-content: center;
-            height: 100vh;
             padding-right: 100px;
         }
         .df{
@@ -64,17 +63,21 @@ if(isset($_POST['submit'])){
   </style>
 </head>
 <body>
+    <?php
+    $oldCompanyName =  $conn->query("SELECT * FROM `systemconfig` WHERE id ='1'")->fetch();
+    ?>
     <div class="main-container">
         <a href="home.php" class="btn text-light"><h2>
             <u style="text-decoration: none;"> <?=$company_name?></u></h2></a>    
-            <a href="logout.php" class="logoutbtn"><h4 class="btn btn-warning" style="font-weight: 600;">
-                logout <?php echo"( ".$_SESSION['fullname']." )";?></h4></a>
+                <a href="logout.php" class="logoutbtn"><h4 class="btn btn-warning" style="font-weight: 600;">
+                  logout <?php echo"( ".$_SESSION['fullname']." )";?></h4></a>
  
     </div>
     <div class="main">
         <form method="post" class="df">
             <h2>Update Company Name</h2>
-            <input type="text" class="form-control mt-2" name="company_name" placeholder="Company Name">
+            <input type="text" class="form-control mt-2" name="company_name" 
+                placeholder="Company Name" value="<?=$oldCompanyName['company_name']?>">
             <input type="submit" class="btn btn-success mt-3" name="submit" value="Update">
         </form>
     </div>

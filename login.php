@@ -22,7 +22,7 @@ include('db.php');
         height: 100vh;
       }
       span{
-        width:30%;
+        width:40%;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -43,6 +43,10 @@ include('db.php');
       form{
         width:80%;
       }
+      .fpassword{
+            display: flex;
+            justify-content: flex-end;
+        }
       @media(max-width:786px){
         .img-section{
           width:0%;
@@ -75,8 +79,8 @@ include('db.php');
               <label for="exampleInputPassword1">Password</label>
               <input type="password" class="form-control" name="password"placeholder="Password" required>
             </div>
-            <div>
-              <a href="pforward.php">Password Forward</a>
+            <div class="fpassword mt-1">
+              <a href="pforward.php">Forward Password ?</a>
             </div>
             <button type="submit" class="btn btn-info mt-3 w-50">Log In</button>
       </form>

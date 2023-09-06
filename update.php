@@ -10,6 +10,9 @@ if(!isset($_GET['pf'])){
         .changedn{
         display: block;
         }
+        .homebtnforwardpassword{
+            display: none;
+        }
     </style>
     <?php
 }else{
@@ -25,8 +28,28 @@ if(!isset($_GET['pf'])){
 $id = $_GET['id'];
 if(!$pf){
     $role= $_SESSION['role'];
+
+    // user == 0
+    if($role === 0){
+        ?>
+        <style>
+        .useradminrolecheck{
+        display: block;
+        }
+    </style>
+        <?php
+    }else{
+        ?>
+        <style>
+        .useradminrolecheck{
+        display: none;
+        }
+    </style>
+        <?php
+    }
 }
 $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,7 +161,6 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
             form .titlehead{
                 padding-bottom: 20px;
                 flex-direction: column-reverse;
-                /* justify-content: space-evenly; */
             }
         }
         @media(max-width:550px){
@@ -154,6 +176,7 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
             <div class="titlehead">
                 
                 <a href="home.php" class="btn btn-light changedn">< < &nbsp;Back Home</a>
+                <a href="login.php" class="btn btn-light homebtnforwardpassword">< < &nbsp;Back Home</a>
                 
                 <h2>Testing Version</h2>
                 <p>&nbsp;</p>
@@ -217,39 +240,38 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 
                 <div class="sub-df" style="width: 49%;">
                     <label for="" >Password <span style="color:red;">*</span></label>
-                    <input type="password" name="password" id="pass" 
+                    <input type="password" name="password" id="pass" value="<?=$sql['password']?>"
                     minlength="8" placeholder="Enter Password" style="width: 100%;"> 
                     <div class="sp">
                         <input type="checkbox" onclick="validateForm()">
                         <p class="ifp" style="margin-bottom:0px;font-size: small;">&nbsp;Show Password</p>
                     </div>
                 </div>
+                <!-- DOB == birthdate -->
                     <div class="sub-df changedn" style="width: 49%;">
-                    <label for=""> Birth date <span style="color:red;">*</span></label>
+                    <label for=""> DOB <span style="color:red;">*</span></label>
                         <input type="date" name="birthdate" placeholder="Enter Security Question" 
                         style="width: 100%;" maxlength="12" value="<?=$sql['birthdate']?>" required>
                     </div>
             </div>
             <!-- security END -->
-         
-                <!--Start  role -->
-                
-        <?php if(!$pf){ ?>
 
-            <?php if($role!="0"){?>
+                <!--Start  role -->
+        <div class="changedn useradminrolecheck">
+
                 <div class="df">
-                    <label for="">Role </label>
+                    <label for="">Role</label>
                     <p class="text-danger text-right"><?php echo"Old value : ";
                     if($sql['role']=="0"){ echo "User";}else{ echo"Admin"; }?></p>
-                </div>
+                </div>     
                 
-				<select name="role" value="<?=$sql['role']?>">
+                <input type="number" name="role" value="<?=$sql['role']?>">
+				<!-- <select name="role" value="<?=$sql['role']?>">
 					<option value="0">User</option>
 					<option value="10">Admin</option>
-				</select>
-                <!--END role -->
-        <?php }
-    } ?>
+				</select> -->
+            </div>
+            <!--END role -->
 
             <?php 
             if(!$pf){

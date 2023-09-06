@@ -165,7 +165,7 @@
                         </select>
                 </div>
                 <div class="sub-df" style="width: 49%;">
-                    <label for=""> Birth date <span style="color:red;">*</span></label>
+                    <label for=""> DOB <span style="color:red;">*</span></label>
                     <input type="date" name="birthdate" placeholder="Enter Security Question"  maxlength="12" required>
                 </div>
 

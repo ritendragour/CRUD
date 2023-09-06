@@ -5,7 +5,7 @@ include('db.php');
     $id = $_SESSION['id'];
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
-    header('location:signup.php');
+    header('location:login.php');
 }else{
 ?>
 <!DOCTYPE html>
@@ -75,7 +75,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 <body>
     <div class="loginHeader">
         <a href="home.php"><h2><?=$company_name?></h2></a>
-        <button class="btn btn-warning"><a href="logout.php">logout <?php echo"( ".$_SESSION['fullname']." )";?></a></button>
+        <a href="logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
     </div>
    
     <div class="seoc">

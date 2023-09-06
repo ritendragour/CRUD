@@ -8,7 +8,7 @@ session_start();
      $LastName= $_POST['lname'];
      $email= $_POST['email'];
      $phone= $_POST['phone'];
-     $gender= $_POST['gender'];
+     // $gender= $_POST['gender'];
      $role=$_POST['role'];
      $location= $_POST['location'];
      $securityquestion= $_POST['securityquestion'];
@@ -18,8 +18,11 @@ session_start();
      $password= $_POST['password'];
      $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 
+     // print_r($_POST);die;
+
+     // `gender`='$gender',
     $sql3 = $conn->query("UPDATE `info` SET `fname`='$FirstName',`lname`='$LastName'
-    ,`email`='$email',`phone`='$phone',`gender`='$gender',`location`='$location', 
+    ,`email`='$email',`phone`='$phone',`location`='$location', 
     `password`='$passwordHash',`role`='$role' ,`securityquestion` = '$securityquestion',
     `securityanswer` ='$securityanswer',`birthdate`='$birthdate',`pincode`='$pincode' WHERE id=$id");
 
