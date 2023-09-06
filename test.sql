@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 01, 2023 at 09:34 AM
+-- Generation Time: Sep 06, 2023 at 02:41 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -33,9 +33,13 @@ CREATE TABLE `info` (
   `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
+  `securityquestion` varchar(255) NOT NULL,
+  `securityanswer` varchar(255) NOT NULL,
+  `birthdate` date NOT NULL,
+  `phone` varchar(255) DEFAULT NULL,
   `gender` varchar(255) NOT NULL,
-  `location` varchar(255) NOT NULL,
+  `pincode` int(11) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
   `role` varchar(255) NOT NULL,
   `dt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -44,8 +48,10 @@ CREATE TABLE `info` (
 -- Dumping data for table `info`
 --
 
-INSERT INTO `info` (`id`, `fname`, `lname`, `email`, `password`, `phone`, `gender`, `location`, `role`, `dt`) VALUES
-(1, 'Ritendra', 'gour', 'ritendragour5@gmail.com', '$2y$10$w7kSU0H7/5VnimFBf1Ez2e43Qc5AJtBjJl4XQ5zXvvjErz59s5f5i', '+919826964395', 'Male', 'Seoni Malwa', '10', '2023-09-01 12:57:19');
+INSERT INTO `info` (`id`, `fname`, `lname`, `email`, `password`, `securityquestion`, `securityanswer`, `birthdate`, `phone`, `gender`, `pincode`, `location`, `role`, `dt`) VALUES
+(1, 'Ritendra', 'gour', 'ritendragour5@gmail.com', '$2y$10$8DVVoyVdMvjwpIjj2JsZ/uodha2V5FKy0AvH/I8I8OE5T6wLzj5k2', 'nick name', 'ashwani', '1998-03-27', '+919826964395', '', 461223, 'Seoni Malwa', '10', '2023-09-01 12:57:19'),
+(11, 'Ashwani', 'gour', 'info@ritendra.tech', '$2y$10$cLNPRopo2BC4Hev7cLgjgOYAg8pMtFqdEHzD11KdhMKdwYlIYIm9W', 'nick name', 'ashwani', '1998-03-27', '+919826964395', '', 4612232, 'Seoni Malwaa', '', '2023-09-02 14:44:22'),
+(12, 'anurag', 'gour', 'anuraggour7000@gmail.com', '$2y$10$esR3KrwnhxrSYBQ4U0Vt1.AasuowT.Q5c5v9xBTKBrNH3iPIt0CCq', 'nick name', 'annu', '2002-08-01', '8103041752', '', 452010, 'indore', '0', '2023-09-03 01:11:33');
 
 -- --------------------------------------------------------
 
@@ -64,7 +70,7 @@ CREATE TABLE `systemconfig` (
 --
 
 INSERT INTO `systemconfig` (`id`, `company_name`, `dt`) VALUES
-(1, 'Testing Version 2.0', '2023-09-01 12:58:06');
+(1, 'Testing Version', '2023-09-01 12:58:06');
 
 --
 -- Indexes for dumped tables
@@ -91,7 +97,7 @@ ALTER TABLE `systemconfig`
 -- AUTO_INCREMENT for table `info`
 --
 ALTER TABLE `info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `systemconfig`
