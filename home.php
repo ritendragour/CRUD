@@ -72,7 +72,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
     </style>
 </head>
-<body onload="myFunction()">
+<body>
     <div class="loginHeader">
         <a href="home.php"><h2><?=$company_name?></h2></a>
         <a href="logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
@@ -91,7 +91,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     </div>
 </body>
 </html> 
-
 <?php
 }
 ?>

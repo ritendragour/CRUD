@@ -8,14 +8,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $sqlLogin= $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->fetch();
     
     $checkpassword = password_verify($password, $sqlLogin['password']);
-
+    
     if($checkpassword){
         session_start();
         $_SESSION['loggedin'] = true;
         $_SESSION['role'] = $sqlLogin['role'];
         $_SESSION['id'] = $sqlLogin['id'];
         $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];  
-        header('location:home.php');
+        ?>
+            <link rel="stylesheet" href="../lib/w3.css">
+            <body style="color:red;" onload="doNotPressbackButtonMGS()">
+            <script>
+                function doNotPressbackButtonMGS() {
+                    if(!alert("Please don't press back button Because if you press back button automatically you will be logout")){
+                        window.location.href = 'home.php';
+                    }
+                }
+            </script>
+        <?php
     }else{
         ?>
         <style>
@@ -49,9 +59,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             <h1>Invalid Login</h1>
             <a href='login.php' class='submit btn btn-light btn-lg'>Try Again</a>
         </div>
-        <?php
-        
+        <?php   
     }
-
 }
 ?>
