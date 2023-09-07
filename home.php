@@ -9,7 +9,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 }else{
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             font-weight: 600;
         }
         h2{
-            color:white;
+            /* color:white; */
         }
         .seoc{
             display: flex;
@@ -72,7 +72,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
     </style>
 </head>
-<body>
+<body onload="myFunction()">
     <div class="loginHeader">
         <a href="home.php"><h2><?=$company_name?></h2></a>
         <a href="logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>

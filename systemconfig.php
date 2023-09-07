@@ -2,11 +2,15 @@
 include('db.php');
 session_start();
 
-if(isset($_POST['submit'])){
-    $company_name_value = $_POST['company_name'];
-    $conn->query("UPDATE `systemconfig` SET `company_name`='$company_name_value' WHERE id='1'");
-    header('location:home.php');
-}
+if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
+    header('location:login.php');
+}else{
+
+    if(isset($_POST['submit'])){
+        $company_name_value = $_POST['company_name'];
+        $conn->query("UPDATE `systemconfig` SET `company_name`='$company_name_value' WHERE id='1'");
+        header('location:home.php');
+    }
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,3 +87,4 @@ if(isset($_POST['submit'])){
     </div>
 </body>
 </html>
+<?php } ?>

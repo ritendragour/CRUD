@@ -34,7 +34,7 @@ if(!$pf){
         ?>
         <style>
         .useradminrolecheck{
-        display: block;
+        display: none;
         }
     </style>
         <?php
@@ -42,7 +42,7 @@ if(!$pf){
         ?>
         <style>
         .useradminrolecheck{
-        display: none;
+        display: block;
         }
     </style>
         <?php
@@ -247,29 +247,26 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                         <p class="ifp" style="margin-bottom:0px;font-size: small;">&nbsp;Show Password</p>
                     </div>
                 </div>
+
                 <!-- DOB == birthdate -->
-                    <div class="sub-df changedn" style="width: 49%;">
-                    <label for=""> DOB <span style="color:red;">*</span></label>
-                        <input type="date" name="birthdate" placeholder="Enter Security Question" 
-                        style="width: 100%;" maxlength="12" value="<?=$sql['birthdate']?>" required>
-                    </div>
+                <div class="sub-df changedn" style="width: 49%;">
+                <label for=""> DOB <span style="color:red;">*</span></label>
+                    <input type="date" name="birthdate" placeholder="Enter Security Question" 
+                    style="width: 100%;" maxlength="12" value="<?=$sql['birthdate']?>" required>
+                </div>
+
             </div>
             <!-- security END -->
 
-                <!--Start  role -->
-        <div class="changedn useradminrolecheck">
+            <!--Start  role -->
+             <div class="changedn useradminrolecheck">
 
                 <div class="df">
                     <label for="">Role</label>
-                    <p class="text-danger text-right"><?php echo"Old value : ";
-                    if($sql['role']=="0"){ echo "User";}else{ echo"Admin"; }?></p>
-                </div>     
-                
-                <input type="number" name="role" value="<?=$sql['role']?>">
-				<!-- <select name="role" value="<?=$sql['role']?>">
-					<option value="0">User</option>
-					<option value="10">Admin</option>
-				</select> -->
+                    <p class="text-danger text-right" style="font-size: medium;">Admin = 10 / User = 0</p>
+                </div>    
+
+                <input type="number" name="role" value="<?=$sql['role']?>" style="width: 100%;">
             </div>
             <!--END role -->
 

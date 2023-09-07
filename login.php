@@ -1,5 +1,8 @@
 <?php
 include('db.php');
+session_start();
+session_unset();
+session_destroy();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +12,7 @@ include('db.php');
     <title>Log In</title>
     <style>
       body{
-        
+        color:white;
         background-color:#070c5a;
       }
       .container{
