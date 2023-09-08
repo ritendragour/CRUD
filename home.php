@@ -1,5 +1,7 @@
 <?php
 include('db.php');
+include('bootstrap.php');
+
     session_start();
     $role= $_SESSION['role'];
     $id = $_SESSION['id'];

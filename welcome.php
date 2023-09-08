@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+include('bootstrap.php');
 
 $FirstName= $_POST['fname'];
 $LastName= $_POST['lname'];

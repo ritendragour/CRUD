@@ -1,6 +1,7 @@
 <?php
-session_start();
-session_unset();
-session_destroy();
+include('db.php');
+
+$usesession = new useagain();
+$usesession->session();
 header('location:login.php')
 ?>

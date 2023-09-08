@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include('bootstrap.php');
+
 $role= $_SESSION['role'];
 
 // 0 = user, 10 = admin
@@ -18,7 +20,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <title>User Info</title>
     <style>
         body{
-            background-color: #ada4b6;
+            background-color: #ffffff;
         }
         .main-container{
             display: flex;
@@ -144,7 +146,7 @@ while($row = $sql->fetch()){
     <td class="noimp"><?=$row["location"]?></td>
     <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td class="noimp"><?=$row["dt"]?></td>
-    <?php $uniqid = uniqid(); ?>
+
     <td><?="<a href='update.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
         &$uniqid$uniqid$uniqid$uniqid$uniqid'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
@@ -160,10 +162,9 @@ while($row = $sql->fetch()){
 }else{
     echo"<div class='notaadmin'>
             <h1>You are not an Admin.</h1>
-            <h2>That's why you can't see any details</h2>
-            <a href='mailto:ritendragour5@gmail.com' class='logoutbtn'>
-            <h3 class='text-danger'>Want to see details? So Please contact the administrator.</h3>
-            </a>
+            <h2>That's why you can't see any details. Want to see details?</h2>
+            <h3 class='text-danger'>So Please contact the administrator.
+            <a href='mailto:$permanentEmail' class='logoutbtn'>$permanentEmail</a></h3>
         </div>";
 }
 ?>

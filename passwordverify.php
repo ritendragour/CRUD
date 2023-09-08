@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+include('bootstrap.php');
 $accessSecurityquestion= $_GET['securityquestion'];
 $accessemail = $_GET['accessemail'];
 
@@ -16,7 +17,6 @@ if(isset($_POST['submit'])){
         if($EnterBirthdate == $accessBirthdate){
             $sqlid= $sqlcheckemail['id'];
             $pf= "true";
-            $uniqid = uniqid();
             header("location:update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid&");
         }else{
             ?>

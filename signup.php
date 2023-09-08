@@ -1,5 +1,10 @@
 <!-- Location = city -->
-
+<?php
+include('db.php');
+session_start();
+session_unset();
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +136,7 @@
 <body>
 	<div class="main-container">
 		<form action="welcome.php" method="post">
-            <a href="login.php"><h2>Testing Version</h2></a>
+            <a href="login.php"><h2><?=$company_name?></h2></a>
             <div class="loginsection">
                 <a href='login.php' class='loginbtn'>> > log In </a>
             </div>

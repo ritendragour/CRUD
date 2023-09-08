@@ -3,9 +3,8 @@
 include('db.php');
 $sqldeleteall = $conn->query("DELETE FROM `info`")->fetch();
 
-session_start();
-session_unset();
-session_destroy();
+$usesession = new useagain();
+$usesession->session();
 
 header("location:signup.php");
 

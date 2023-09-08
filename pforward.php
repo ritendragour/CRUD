@@ -1,6 +1,7 @@
 <?php
 
 include('db.php');
+include('bootstrap.php');
 if(isset($_POST['submit'])){
 $email = $_POST['email'];
 
@@ -9,7 +10,6 @@ $sqlcheckemail = $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->f
 if($sqlcheckemail){
         $securityquestion = $sqlcheckemail['securityquestion'];
         $accessemail = $sqlcheckemail['email'];
-        $uniqid = uniqid();
         header("location:passwordverify.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&securityquestion=$securityquestion&$uniqid&&accessemail=$accessemail");
     }else{
     ?><script>

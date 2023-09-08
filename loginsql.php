@@ -1,5 +1,6 @@
 <?php
 include('db.php');
+include('bootstrap.php');
 $email = $_POST['email'];
 $password = $_POST['password'];
 
