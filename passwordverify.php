@@ -16,7 +16,8 @@ if(isset($_POST['submit'])){
         if($EnterBirthdate == $accessBirthdate){
             $sqlid= $sqlcheckemail['id'];
             $pf= "true";
-            header("location:update.php?id=$sqlid&pf=$pf");
+            $uniqid = uniqid();
+            header("location:update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid&");
         }else{
             ?>
             <script>

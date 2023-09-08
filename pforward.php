@@ -9,7 +9,8 @@ $sqlcheckemail = $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->f
 if($sqlcheckemail){
         $securityquestion = $sqlcheckemail['securityquestion'];
         $accessemail = $sqlcheckemail['email'];
-        header("location:passwordverify.php?securityquestion=$securityquestion&accessemail=$accessemail");
+        $uniqid = uniqid();
+        header("location:passwordverify.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&securityquestion=$securityquestion&$uniqid&&accessemail=$accessemail");
     }else{
     ?><script>
             alert("wrong Email");

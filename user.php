@@ -144,9 +144,13 @@ while($row = $sql->fetch()){
     <td class="noimp"><?=$row["location"]?></td>
     <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td class="noimp"><?=$row["dt"]?></td>
-    <td><?="<a href='update.php?id=$row[id]'><button class='btn btn-primary'>Update</button></a>"?></td>
+    <?php $uniqid = uniqid(); ?>
+    <td><?="<a href='update.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
+        &$uniqid$uniqid$uniqid$uniqid$uniqid'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
-    <td class="noimp impcloumn"><?="<a href='delete.php?id=$row[id]'><button class='btn btn-danger'>Delete</button></a>"?></td>
+    <td class="noimp impcloumn"><?="<a href='delete.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
+        &$uniqid$uniqid$uniqid$uniqid$uniqid'>
+    <button class='btn btn-danger'>Delete</button></a>"?></td>
     <?php } ?>
 
  </tr>
