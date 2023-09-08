@@ -16,7 +16,7 @@ $usesession->session();
         color:white;
         background-color:#070c5a;
       }
-      .container{
+      .containers{
         padding:0px;
         margin: 0px;
         display: flex;
@@ -29,13 +29,14 @@ $usesession->session();
         width:40%;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-evenly;
       }
       span h1 {
         color:white;
         border-bottom:2px solid white;
         padding-bottom: 5px;
+        font-size: 42px;
       }
       .img-section{
         width:70%;
@@ -50,8 +51,22 @@ $usesession->session();
       .fpassword{
             display: flex;
             justify-content: flex-end;
+        } 
+      @media(max-width:879px){
+        span h1 {
+        font-size: 36px;
         }
-      @media(max-width:786px){
+      }
+      @media(max-width:700px){
+        .img-section{
+          width:40%;
+        }
+        span{
+          width: 60%;
+          padding: 0px 25px;
+        }
+      }
+      @media(max-width:500px){
         .img-section{
           width:0%;
           display: none;
@@ -62,15 +77,21 @@ $usesession->session();
         }
         form{
         width:100%;
+        }
       }
+      @media(max-width:300px){
+        span h1 {
+        font-size: 34px;
+        }
       }
     </style>
 </head>
 <body>
-  <div class="container">
+  <div class="containers">
     <div class="img-section">
       <img src="https://t3.ftcdn.net/jpg/01/22/71/96/360_F_122719641_V0yw2cAOrfxsON3HeWi2Sf4iVxhv27QO.jpg" alt="">
     </div>
+
     <span>
     <a href="login.php" style="text-decoration: none;"><h1><?=$company_name?></h1></a>
         <form action="loginsql.php" method="post">
@@ -89,6 +110,6 @@ $usesession->session();
             <button type="submit" class="btn btn-info mt-3 w-50">Log In</button>
       </form>
     </span>
-</div>
+  </div>
 </body>
 </html>
