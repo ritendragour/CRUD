@@ -32,7 +32,7 @@ if(!$pf){
     $role= $_SESSION['role'];
 
     // user == 0
-    if($role === 0){
+    if($role == 0){
         ?>
         <style>
         .useradminrolecheck{
