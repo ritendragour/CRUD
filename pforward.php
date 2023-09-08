@@ -66,13 +66,20 @@ if($sqlcheckemail){
             background-color: rgb(41 52 55 / 60%);
             padding: 5px;
         }
-        @media(max-width:450px)
+        @media(max-width:650px)
         {
             .main-container{
                 flex-direction: column;
             }
             .main{
                 padding: 0px;
+                align-items:center;
+            }
+        }
+        @media(max-width:443px)
+        {
+            .main{
+                padding: 0px 20px;
                 align-items:center;
             }
         }

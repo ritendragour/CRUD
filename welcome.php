@@ -21,7 +21,7 @@ $passwordHash = password_hash($password, PASSWORD_BCRYPT);
 if($password !=$cpassword){
     ?>
     <div class="textareause">
-    <h2 style="font-size: 48px; color:red">Password does not match</h2>
+    <h2 style="color:red" class="note">Password does not match</h2>
         <a href='signup.php' class="btn btn-dark btn-lg mt-3" 
         style="text-decoration: none;color: white;">Sign Up </a>
     </div>
@@ -39,7 +39,7 @@ if($password !=$cpassword){
             echo('<h2>"'.$checkDupalicateEntry['email'].'"');
             ?>
             This E-mail is already register</h2>
-            <h2 style="font-size: 48px;">Please Try Agian later</h2>
+            <h2 class="note">Please Try Agian later</h2>
                 <a href='signup.php' class="btn btn-dark btn-lg mt-3" 
                 style="text-decoration: none;color: white;">Sign Up </a>
             </div>
@@ -104,6 +104,24 @@ if($password !=$cpassword){
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    .note{
+        font-size: 48px;
+    }
+    @media (max-width:820px) {
+        .textareause{
+            width: 100%;
+        }
+    }
+    @media (max-width:569px) {
+        .note{
+        font-size: 32px;
+    }
+    }
+    @media (max-width:425px) {
+        .note{
+        font-size: 26px;
+    }
     }
 </style>
 </head>

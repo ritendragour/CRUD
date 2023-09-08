@@ -57,6 +57,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
         @media(max-width:450px)
         {
+            .df{
+                width: 90vw;
+            }
             .main-container{
                 flex-direction: column;
             }

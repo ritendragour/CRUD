@@ -92,6 +92,9 @@ if(isset($_POST['submit'])){
                 padding: 0px;
                 align-items:center;
             }
+            .df{
+                width: 90vw;
+            }
         }
     </style>
 </head>

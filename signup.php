@@ -115,12 +115,16 @@ session_destroy();
         .sub-df{
             display: flex;
             flex-direction: column;
+            width: 49%;
         }
         .df a{
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
+        }
+        .showpassmode{
+            justify-content: flex-start;
         }
         @media(max-width:1200px){ 
         .main-container {
@@ -129,6 +133,18 @@ session_destroy();
         form{
                 width: 100vw;
                 padding: 20px;
+            }
+        }
+        @media(max-width:700px){ 
+            .showpassmode{
+            justify-content: flex-end;
+            }
+            .df{
+
+                flex-direction: column;
+            }
+            .sub-df{
+            width: 100%;
             }
         }
 	</style>
@@ -141,7 +157,7 @@ session_destroy();
                 <a href='login.php' class='loginbtn'>> > log In </a>
             </div>
 			<label for="" style="margin-top:0px;">Full Name <span style="color:red;">*</span></label>
-			<div class="df">
+			<div class="df" style="flex-direction:row!important;">
 					<input type="text" name="fname" placeholder="First Name" class="w-50" required>
 	
 					<input type="text" name="lname" placeholder="Last Name" class="w-50">
@@ -149,19 +165,19 @@ session_destroy();
             
 <!--  -->
             <div class="df">
-                    <div class="sub-df" style="width: 49%;">
+                    <div class="sub-df" >
                     <label for="">E-mail <span style="color:red;">*</span></label>
 				    <input type="email" name="email" placeholder="Enter E-mail" required>
                 </div>
                 
-                <div class="sub-df" style="width: 49%;">
+                <div class="sub-df" >
                     <label for="">Phone</label>
                     <input type="text" name="phone" placeholder="Enter Phone number ex. +91 9876543210">
                 </div>
             </div>
 <!--  -->
                 <div class="df">
-                    <div class="sub-df" style="width: 49%;">
+                    <div class="sub-df" >
                         <label for="">Gender</label>
                         <select name="gender" required>
                             <option value="Male">Male</option>
@@ -169,21 +185,21 @@ session_destroy();
                             <option value="Other">Other</option>
                         </select>
                 </div>
-                <div class="sub-df" style="width: 49%;">
+                <div class="sub-df" >
                     <label for=""> DOB <span style="color:red;">*</span></label>
-                    <input type="date" name="birthdate" placeholder="Enter Security Question"  maxlength="12" required>
+                    <input type="date" name="birthdate" required>
                 </div>
 
             </div>
 
             <!-- security Start -->
             <div class="df">
-                    <div class="sub-df" style="width: 49%;">
+                    <div class="sub-df" >
                     <label for="">Security Question<span style="color:red;">*</span></label>
                     <input type="text" name="securityquestion" placeholder="Enter Security Question"  maxlength="12" required>
                 </div>
                 
-                <div class="sub-df" style="width: 49%;">
+                <div class="sub-df" >
                     <label for="">Security Answer<span style="color:red;">*</span>&nbsp;</label>
                     <input type="text" name="securityanswer" placeholder="Enter Security Answer"  maxlength="12" required>
                 </div>
@@ -193,11 +209,11 @@ session_destroy();
             <!-- birth Start -->
             <div class="df">
                     
-                <div class="sub-df" style="width: 49%;">
+                <div class="sub-df" >
                     <label for="">City</label>
                     <input type="text" name="location" placeholder="Enter City Name"  maxlength="12">
                 </div>
-                <div class="sub-df" style="width: 49%;">
+                <div class="sub-df" >
                     <label for="">Pin code </label>
                     <input type="text" name="pincode" placeholder="Enter Security Answer"  maxlength="12">
                 </div>
@@ -205,17 +221,17 @@ session_destroy();
             <!-- security END -->
             <!-- password start -->
             <div class="df">
-                    <div class="sub-df" style="width: 49%;">
+                    <div class="sub-df" >
                     <label for="">Password <span style="color:red;">*</span></label>
             <input type="password" name="password" placeholder="Password" id="pass" minlength="8" required >
 
-            <div class="sp" style="justify-content: flex-start;">
+            <div class="sp showpassmode">
                 <input type="checkbox" onclick="validateForm()">
                 <p class="ifp">&nbsp;Show Password</p>
             </div>
                 </div>
                 <!-- c pass -->
-                <div class="sub-df" style="width: 49%;">
+                <div class="sub-df" >
                 <label for="" >Confirm <span style="color:red;">*</span></label>
             <input type="password" name="cpassword" placeholder="Confirm Password" id="cpass" minlength="8" required>
             <div class="sp" style="justify-content: flex-end;">

@@ -24,7 +24,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         body{
             background-image:url('./logo.jpg');
             background-size:cover;
-            /* background-position:center; */
+            height: 90vh;
+            background-position:center;
             color:white;
         }
         .user_hello{

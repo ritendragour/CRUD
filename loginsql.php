@@ -55,6 +55,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                 color: red;
                 background-color: rgb(255,255,255,0.8);
             }
+            @media (max-width:420px) {
+                h1{
+                font-size: 42px;
+                }
+            }
         </style>
         <div class="main-container">
             <h1>Invalid Login</h1>
