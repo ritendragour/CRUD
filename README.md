@@ -1,3 +1,3 @@
 # CRUD-in-PHP
 
-localhost/loginform.php
+localhost/index.php
