@@ -7,6 +7,7 @@ $email = $_POST['email'];
 
 $sqlcheckemail = $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->fetch();
 
+
 if($sqlcheckemail){
         $securityquestion = $sqlcheckemail['securityquestion'];
         $accessemail = $sqlcheckemail['email'];

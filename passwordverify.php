@@ -12,26 +12,33 @@ if(isset($_POST['submit'])){
     $accessSecurityanswer = $sqlcheckemail['securityanswer'];
     $accessBirthdate = $sqlcheckemail['birthdate'];
 
-    if($accessSecurityanswer == $EnterSecurityanswer){
+        if($accessSecurityanswer == $EnterSecurityanswer){
 
-        if($EnterBirthdate == $accessBirthdate){
-            $sqlid= $sqlcheckemail['id'];
-            $pf= "true";
-            header("location:update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid&");
+            if($EnterBirthdate == $accessBirthdate){
+                $sqlid= $sqlcheckemail['id'];
+                $pf= "true";
+
+                // SMTP MAIL
+                $subject = 'Testing PHP Mail';
+                $message = "$domainName/update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid&";
+                $headers = 'From: '.$permanentEmail;
+                mail($accessemail,$subject,$message,$headers);
+
+                header("location:login.php");
+            }else{
+                ?>
+                <script>
+                alert("wrong DOB");
+                </script>
+                <?php
+            }
         }else{
             ?>
             <script>
-            alert("wrong DOB");
+            alert("wrong Answer");
             </script>
             <?php
         }
-    }else{
-        ?>
-        <script>
-        alert("wrong Answer");
-        </script>
-        <?php
-    }
 }
 ?>
 
