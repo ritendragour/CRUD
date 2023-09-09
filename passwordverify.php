@@ -17,14 +17,33 @@ if(isset($_POST['submit'])){
             if($EnterBirthdate == $accessBirthdate){
                 $sqlid= $sqlcheckemail['id'];
                 $pf= "true";
-
+                $fullnameformail = $sqlcheckemail['fname']." ".$sqlcheckemail['lname'];
+                $IPAddress = getenv("REMOTE_ADDR");
+                
                 // SMTP MAIL
-                $subject = 'Testing PHP Mail';
-                $message = "$domainName/update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid&";
+                $subject = 'Reset your password';
+                $message = "$company_name 
+                            Hello $fullnameformail
+
+                            To reset your password, please click on the link below. 
+                            
+                            $domainName/update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid& 
+                            
+                            If you did not request this reset, you can ignore this email. It will expire in 24 hours. 
+
+                            Try to login IP $IPAddress.
+
+                            $company_name 
+                            Email: '$permanentEmail' 
+                            Website: www.$domainName 
+                            
+                            visit our website | log in to your account | get support 
+                            Copyright © $company_name Internet, All rights reserved.";
                 $headers = 'From: '.$permanentEmail;
+
                 mail($accessemail,$subject,$message,$headers);
 
-                header("location:login.php");
+                header("location:thankyou.php");
             }else{
                 ?>
                 <script>
