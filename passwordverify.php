@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
                             
                             $domainName/update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid& 
                             
-                            If you did not request this reset, you can ignore this email. It will expire in 24 hours. 
+                            If you did not request this reset, you can ignore this email.
 
                             Try to login IP $IPAddress.
 
