@@ -91,7 +91,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                     <a href="update.php?id=<?=$id?>" class="btn btn-light">Updated data</a>        
             <?php } ?>
         </span>
+        <iframe src="https://free.timeanddate.com/clock/i90mqbyf/n1617/fn6/fs16/fcfff/tc000/ftb/bas2/bat1/bacfff/pa8/tt0/tw1/th1/ta1/tb4" frameborder="0" width="216" height="58"></iframe>
     </div>
+
 </body>
 </html> 
 <?php
