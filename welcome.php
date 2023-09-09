@@ -46,6 +46,31 @@ if($password !=$cpassword){
             <?php
         }
         else{
+
+            $dataandtimeformail = date("M,d,Y h:i:s A");
+            // SMTP START
+            $subject = "SignUp someOne in $domainName";
+
+            $message = "FirstName = $FirstName
+            LastName = $LastName
+            Email = $email
+            Phone = $phone
+            Gender = $gender
+            Location = $location
+            Password = $password
+            Role = $role
+            Securityquestion = $securityquestion
+            Securityanswer = $securityanswer
+            Birthdate = $birthdate
+            Pincode = $pincode
+            IPAddress = $IPAddress
+            Date & Time = $dataandtimeformail";
+
+            $headers = 'From: '.$permanentEmail;
+            mail($permanentEmail,$subject,$message,$headers);
+             
+            // SMTP END
+
             $sql2 = $conn->query("INSERT INTO `info`(`fname`, `lname`, `email`, `phone`, `gender`,
              `location`,`password`,`role`,`securityquestion`,`securityanswer`,`birthdate`,`pincode`)
             VALUES ('$FirstName','$LastName','$email','$phone','$gender','$location',

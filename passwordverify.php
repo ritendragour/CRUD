@@ -20,7 +20,6 @@ if(isset($_POST['submit'])){
                 $sqlid= $sqlcheckemail['id'];
                 $pf= "true";
                 $fullnameformail = $sqlcheckemail['fname']." ".$sqlcheckemail['lname'];
-                $IPAddress = getenv("REMOTE_ADDR");
                 
                 // SMTP MAIL
                 $subject = 'Reset your password';

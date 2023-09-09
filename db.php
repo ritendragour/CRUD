@@ -14,6 +14,7 @@ $company_name = $conn->query("SELECT `company_name` FROM systemconfig WHERE id='
 $uniqid = uniqid();
 $permanentEmail = "ritendragour5@gmail.com";
 $domainName = "gour.ritendra.in";
+$IPAddress = getenv("REMOTE_ADDR");
 class useagain{
     function session(){
         session_start();
