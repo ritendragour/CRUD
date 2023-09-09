@@ -11,7 +11,11 @@ $sqlcheckemail = $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->f
 if($sqlcheckemail){
         $securityquestion = $sqlcheckemail['securityquestion'];
         $accessemail = $sqlcheckemail['email'];
-        header("location:passwordverify.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&securityquestion=$securityquestion&$uniqid&&accessemail=$accessemail");
+
+        // fix time in URL 
+        $ftime = strtotime("+30 minutes", time());
+
+        header("location:passwordverify.php?&$uniqid$uniqid$uniqid&ftime=$ftime&$uniqid$uniqid&securityquestion=$securityquestion&$uniqid&&accessemail=$accessemail");
     }else{
     ?><script>
             alert("wrong Email");

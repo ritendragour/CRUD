@@ -4,21 +4,27 @@ include('bootstrap.php');
 
 session_start();
 
+
 // Get method 
 if(!isset($_GET['pf'])){
     $pf= false;
     ?>
     <style>
         .changedn{
-        display: block;
+            display: block;
         }
         .homebtnforwardpassword{
             display: none;
         }
-    </style>
+        </style>
     <?php
 }else{
     $pf = $_GET['pf'];
+    
+    $ftime = $_GET['ftime'];
+    if(!(strtotime("+0 minutes", time())) < ((int)$ftime)){
+        header("location:login.php");
+       }
     ?>
     <style>
         .changedn{

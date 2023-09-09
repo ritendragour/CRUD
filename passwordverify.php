@@ -3,6 +3,8 @@ include('db.php');
 include('bootstrap.php');
 $accessSecurityquestion= $_GET['securityquestion'];
 $accessemail = $_GET['accessemail'];
+$ftime = $_GET['ftime'];
+
 
 $sqlcheckemail = $conn->query("SELECT * FROM `info` WHERE `email`= '$accessemail'")->fetch();
 if(isset($_POST['submit'])){
@@ -22,23 +24,29 @@ if(isset($_POST['submit'])){
                 
                 // SMTP MAIL
                 $subject = 'Reset your password';
-                $message = "$company_name 
-                            Hello $fullnameformail
 
-                            To reset your password, please click on the link below. 
-                            
-                            $domainName/update.php?&$uniqid$uniqid$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid& 
-                            
-                            If you did not request this reset, you can ignore this email.
+// START MAIL
 
-                            Try to login IP $IPAddress.
+$message = "$company_name 
 
-                            $company_name 
-                            Email: '$permanentEmail' 
-                            Website: www.$domainName 
-                            
-                            visit our website | log in to your account | get support 
-                            Copyright © $company_name Internet, All rights reserved.";
+Hello $fullnameformail
+
+To reset your password, please click on the link below. 
+
+$domainName/update.php?&$uniqid$uniqid&ftime=$ftime&$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid& 
+
+If you did not request this reset, you can ignore this email. It will expire in 30 min.
+
+Try to login IP $IPAddress.
+
+$company_name 
+Email: '$permanentEmail' 
+Website: www.$domainName 
+
+Copyright © $company_name , All rights reserved.";
+
+// END MAIL
+
                 $headers = 'From: '.$permanentEmail;
 
                 mail($accessemail,$subject,$message,$headers);
