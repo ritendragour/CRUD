@@ -108,7 +108,7 @@ $usesession->session();
               <input type="password" class="form-control" name="password"placeholder="Password" required>
             </div>
             <div class="fpassword mt-1">
-              <a href="pforward.php">Forward Password ?</a>
+              <a href="pforward.php">Forgotten password? ?</a>
             </div>
             <button type="submit" class="btn btn-info mt-3 w-50">Log In</button>
       </form>
