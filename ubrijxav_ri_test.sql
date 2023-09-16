@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 16, 2023 at 12:26 PM
+-- Generation Time: Sep 16, 2023 at 06:58 PM
 -- Server version: 5.7.43
 -- PHP Version: 8.1.16
 
@@ -60,6 +60,30 @@ INSERT INTO `info` (`id`, `fname`, `lname`, `email`, `password`, `securityquesti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `post`
+--
+
+CREATE TABLE `post` (
+  `id` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `category`, `title`, `description`, `file_path`, `created_by`, `dt`) VALUES
+(1, 'Public', 'test', 'dskd', 'Screenshot 2023-08-19 142424.png', 1, '2023-09-16 22:18:42'),
+(2, 'Public', 'd', 'dsdf', '', 1, '2023-09-16 22:19:54');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `systemconfig`
 --
 
@@ -92,6 +116,12 @@ ALTER TABLE `info`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `systemconfig`
 --
 ALTER TABLE `systemconfig`
@@ -106,6 +136,12 @@ ALTER TABLE `systemconfig`
 --
 ALTER TABLE `info`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `systemconfig`

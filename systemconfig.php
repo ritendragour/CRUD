@@ -117,21 +117,21 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             <h2>Update Company Info</h2>
             <label for="" class='mt-2'>Company Name</label>
             <input type="text" class="form-control mt-1" name="company_name" 
-                placeholder="Company Name" value="<?=$company_name?>">
+                placeholder="Company Name" value="<?=$company_name?>" required>
 
             <label for="" class='mt-2'>Support Email</label>
             <input type="text" class="form-control mt-1" name="SupportEmail" 
-            placeholder="Support Email" value="<?=$SupportEmail?>">
+            placeholder="Support Email" value="<?=$SupportEmail?>" required>
 
             
             <div class="loginPersionIsSuperAdmin">
                 <label for="" class='mt-2'>Domain Name</label>
                 <input type="text" class="form-control mt-1" name="domainName" 
-                placeholder="Domain Name" value="<?=$domainName?>">
+                placeholder="Domain Name" value="<?=$domainName?>" required>
                 
                 <label for="" class='mt-2'>Super Admin Email</label>
                 <input type="text" class="form-control mt-1" name="SuperAdminEmail" 
-                placeholder="Super Admin Email" value="<?=$SuperAdminEmail?>">  
+                placeholder="Super Admin Email" value="<?=$SuperAdminEmail?>" required>  
 
             </div>
 
