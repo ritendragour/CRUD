@@ -93,6 +93,25 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <?php
         include('db.php');
         $sql = $conn->query("SELECT * FROM info");
+
+        // Super Admin condition
+        if($SuperAdminEmail == $_SESSION['mail'] && $_SESSION['role'] == '10'){
+            ?>
+            <style>
+                    .loginPersionIsSuperAdmin{
+                        display: block;
+                    }
+            </style>
+                <?php
+            }else{
+                ?>
+            <style>
+                    .loginPersionIsSuperAdmin{
+                        display: none;
+                    }
+            </style>
+            <?php
+            }
     ?>
     <div class="main-container">
         <a href="home.php" style="text-decoration: none;"><h2><?=$company_name?></h2></a>
@@ -146,14 +165,34 @@ while($row = $sql->fetch()){
     <td class="noimp"><?=$row["location"]?></td>
     <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td class="noimp"><?=$row["dt"]?></td>
-
+<?php if($row['id'] =='1'){ ?>
     <td><?="<a href='update.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
         &$uniqid$uniqid$uniqid$uniqid$uniqid'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
     <td class="noimp impcloumn"><?="<a href='delete.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
         &$uniqid$uniqid$uniqid$uniqid$uniqid'>
     <button class='btn btn-danger'>Delete</button></a>"?></td>
-    <?php } ?>
+
+    <?php }}else{
+        ?>
+        <td><?="<button class='btn btn-primary' onclick='canNotChangeSuperAdminData()'>Update</button>"?></td>
+        <td class="noimp impcloumn"><?="<button class='btn btn-danger' onclick='canNotChangeSuperAdminData()'>
+                                    Delete</button>"?></td>
+        <script>
+            function canNotChangeSuperAdminData(){
+
+                alert('You Can Not Change Super Admin Data');
+                <?php 
+                $subject = 'Can Not Change Super Admin Data';
+                $message = 'IP = '.$IPAddress.'<br> login person email ='.$_SESSION['mail'];
+                
+                $headers = 'From: '.$SuperAdminEmail;
+                mail($SuperAdminEmail,$subject,$message,$headers);    
+                ?>
+            }
+        </script>
+        <?php
+    } ?>
 
  </tr>
 <?php

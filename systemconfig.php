@@ -19,7 +19,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         $conn->query("UPDATE `systemconfig` SET `value`='$domainName_value' WHERE id='4'");
         header('location:home.php');
     }
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -84,7 +85,26 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 <body>
     <?php
     // $oldCompanyName =  $conn->query("SELECT * FROM `systemconfig` WHERE id ='1'")->fetch();
-    ?>
+
+        // Super Admin condition
+        if($SuperAdminEmail == $_SESSION['mail'] && $_SESSION['role'] == '10'){
+        ?>
+        <style>
+                .loginPersionIsSuperAdmin{
+                    display: block;
+                }
+        </style>
+            <?php
+        }else{
+            ?>
+        <style>
+                .loginPersionIsSuperAdmin{
+                    display: none;
+                }
+        </style>
+        <?php
+        }
+        ?>
     <div class="main-container">
         <a href="home.php" class="btn text-light"><h2>
             <u style="text-decoration: none;"> <?=$company_name?></u></h2></a>    
@@ -99,17 +119,21 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             <input type="text" class="form-control mt-1" name="company_name" 
                 placeholder="Company Name" value="<?=$company_name?>">
 
-            <label for="" class='mt-2'>Super Admin Email</label>
-            <input type="text" class="form-control mt-1" name="SuperAdminEmail" 
-                placeholder="Super Admin Email" value="<?=$SuperAdminEmail?>">  
-
-            <label for="" class='mt-2'>Domain Name</label>
-            <input type="text" class="form-control mt-1" name="domainName" 
-                placeholder="Domain Name" value="<?=$domainName?>">
-                
             <label for="" class='mt-2'>Support Email</label>
             <input type="text" class="form-control mt-1" name="SupportEmail" 
-                placeholder="Support Email" value="<?=$SupportEmail?>">
+            placeholder="Support Email" value="<?=$SupportEmail?>">
+
+            
+            <div class="loginPersionIsSuperAdmin">
+                <label for="" class='mt-2'>Domain Name</label>
+                <input type="text" class="form-control mt-1" name="domainName" 
+                placeholder="Domain Name" value="<?=$domainName?>">
+                
+                <label for="" class='mt-2'>Super Admin Email</label>
+                <input type="text" class="form-control mt-1" name="SuperAdminEmail" 
+                placeholder="Super Admin Email" value="<?=$SuperAdminEmail?>">  
+
+            </div>
 
             <input type="submit" class="btn btn-success mt-3" name="submit" value="Update">
         </form>
