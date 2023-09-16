@@ -87,6 +87,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             align-items: center;
             border-radius: 15px;
         }
+        @media (max-width:925px) {
+            .inlower{
+                width: auto;
+            }
+        }
         @media (max-width:775px) {
             .seoc{
                 flex-direction: column;
@@ -113,7 +118,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         </div>
         <div class="seoc">
             <h1 class="user_hello">Hello <?php echo$_SESSION['fullname']." !";?></h1>
-            <span>
+            <span style="display:flex;">
                 <a href="post.php" class="btn btn-dark bg-primary">Upload Post</a>        
                 <?php if($role!="0"){ ?>
                     <a href="user.php" class="btn btn-light">All User Data</a>
