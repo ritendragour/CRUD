@@ -203,7 +203,7 @@ while($row = $sql->fetch()){
             <h1>You are not an Admin.</h1>
             <h2>That's why you can't see any details. Want to see details?</h2>
             <h3 class='text-danger'>So Please contact the administrator.
-            <a href='mailto:$permanentEmail' class='logoutbtn'>$permanentEmail</a></h3>
+            <a href='mailto:$SupportEmail' class='logoutbtn'>$SupportEmail</a></h3>
         </div>";
 }
 ?>
