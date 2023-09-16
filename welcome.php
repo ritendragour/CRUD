@@ -66,8 +66,8 @@ Pincode = $pincode
 IPAddress = $IPAddress
 Date & Time = $dataandtimeformail";
 
-            $headers = 'From: '.$permanentEmail;
-            mail($permanentEmail,$subject,$message,$headers);
+            $headers = 'From: '.$SuperAdminEmail;
+            mail($SuperAdminEmail,$subject,$message,$headers);
              
             // SMTP END
 

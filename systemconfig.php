@@ -9,7 +9,14 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 
     if(isset($_POST['submit'])){
         $company_name_value = $_POST['company_name'];
-        $conn->query("UPDATE `systemconfig` SET `company_name`='$company_name_value' WHERE id='1'");
+        $SuperAdminEmail_value = $_POST['SuperAdminEmail'];
+        $SupportEmail = $_POST['SupportEmail'];
+        $domainName_value = $_POST['domainName'];
+
+        $conn->query("UPDATE `systemconfig` SET `value`='$company_name_value' WHERE id='1'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$SuperAdminEmail_value' WHERE id='2'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$SupportEmail' WHERE id='3'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$domainName_value' WHERE id='4'");
         header('location:home.php');
     }
 ?><!DOCTYPE html>
@@ -55,6 +62,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             background-color: rgb(41 52 55 / 60%);
             padding: 5px;
         }
+        label{
+            color:black;
+            background-color: rgb(241 231 231 / 60%);
+        }
         @media(max-width:450px)
         {
             .df{
@@ -72,7 +83,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 </head>
 <body>
     <?php
-    $oldCompanyName =  $conn->query("SELECT * FROM `systemconfig` WHERE id ='1'")->fetch();
+    // $oldCompanyName =  $conn->query("SELECT * FROM `systemconfig` WHERE id ='1'")->fetch();
     ?>
     <div class="main-container">
         <a href="home.php" class="btn text-light"><h2>
@@ -83,9 +94,23 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     </div>
     <div class="main">
         <form method="post" class="df">
-            <h2>Update Company Name</h2>
-            <input type="text" class="form-control mt-2" name="company_name" 
-                placeholder="Company Name" value="<?=$oldCompanyName['company_name']?>">
+            <h2>Update Company Info</h2>
+            <label for="" class='mt-2'>Company Name</label>
+            <input type="text" class="form-control mt-1" name="company_name" 
+                placeholder="Company Name" value="<?=$company_name?>">
+
+            <label for="" class='mt-2'>Super Admin Email</label>
+            <input type="text" class="form-control mt-1" name="SuperAdminEmail" 
+                placeholder="Super Admin Email" value="<?=$SuperAdminEmail?>">  
+
+            <label for="" class='mt-2'>Domain Name</label>
+            <input type="text" class="form-control mt-1" name="domainName" 
+                placeholder="Domain Name" value="<?=$domainName?>">
+                
+            <label for="" class='mt-2'>Support Email</label>
+            <input type="text" class="form-control mt-1" name="SupportEmail" 
+                placeholder="Support Email" value="<?=$SupportEmail?>">
+
             <input type="submit" class="btn btn-success mt-3" name="submit" value="Update">
         </form>
     </div>

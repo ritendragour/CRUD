@@ -98,7 +98,7 @@ $usesession->session();
     <span>
     <a href="login.php" style="text-decoration: none;"><h1><?=$company_name?></h1></a>
         <form action="loginsql.php" method="post">
-          <a href='signup.php' class="btn btn-warning w-100">Sign Up</a>
+          <a href='signup.php' class="btn btn-warning w-100">Create New Account</a>
             <div class="form-group mt-3">
               <label for="exampleInputEmail1">Email address</label>
               <input type="email" class="form-control" name="email" placeholder="Enter email" required>

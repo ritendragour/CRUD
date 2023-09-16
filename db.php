@@ -8,13 +8,15 @@ $conn = new PDO($db_name,"root","");
 // $db_name = "mysql:host=localhost;dbname=ubrijxav_ri_test";
 // $conn = new PDO($db_name,"ubrijxav_rootuser","Rite@9826");
 
-// Company Name
-$company_name = $conn->query("SELECT `company_name` FROM systemconfig WHERE id='1'")->fetch()['company_name'];
+// Use again var
+$company_name = $conn->query("SELECT * FROM systemconfig WHERE id='1'")->fetch()['value'];
+$SuperAdminEmail = $conn->query("SELECT * FROM systemconfig WHERE id='2'")->fetch()['value'];
+$SupportEmail = $conn->query("SELECT * FROM systemconfig WHERE id='3'")->fetch()['value'];
+$domainName = $conn->query("SELECT * FROM systemconfig WHERE id='4'")->fetch()['value'];
 
 $uniqid = uniqid();
-$permanentEmail = "ritendragour5@gmail.com";
-$domainName = "gour.ritendra.in";
 $IPAddress = getenv("REMOTE_ADDR");
+
 class useagain{
     function session(){
         session_start();

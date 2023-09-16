@@ -39,14 +39,14 @@ If you did not request this reset, you can ignore this email. It will expire in 
 Try to login IP $IPAddress.
 
 $company_name 
-Email: '$permanentEmail' 
+Email: '$SupportEmail' 
 Website: www.$domainName 
 
 Copyright © $company_name , All rights reserved.";
 
 // END MAIL
 
-                $headers = 'From: '.$permanentEmail;
+                $headers = 'From: '.$SupportEmail;
 
                 mail($accessemail,$subject,$message,$headers);
 

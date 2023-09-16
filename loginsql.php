@@ -15,6 +15,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION['loggedin'] = true;
         $_SESSION['role'] = $sqlLogin['role'];
         $_SESSION['id'] = $sqlLogin['id'];
+        $_SESSION['mail'] = $sqlLogin ['email'];
         $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];  
         ?>
             <link rel="stylesheet" href="../lib/w3.css">
