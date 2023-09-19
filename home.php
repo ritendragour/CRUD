@@ -6,7 +6,7 @@ include('bootstrap.php');
     $role= $_SESSION['role'];
     $id = $_SESSION['id'];
 
-    $sql = $conn->query("SELECT * FROM `post` WHERE created_by = $id orderBy id => SORT_DESC");
+    $sql = $conn->query("SELECT * FROM `post` WHERE created_by = $id");
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     header('location:login.php');
@@ -146,7 +146,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 
                         <p><a href="<?php if($row['file_path'] == "" )
                     {echo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TohhHft0Z-OnMClzUAcvjN5YVJXXcN2SjQ&usqp=CAU");}
-                    else{echo("./uploaded_file/".$row['file_path']);}?>" class="btn btn-info"><b>Download</b></a></p>
+                    else{echo("./uploaded_file/".$row['file_path']);}?>" class="btn btn-info" download><b>Download</b></a></p>
                        
                 <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
                 

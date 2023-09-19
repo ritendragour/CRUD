@@ -175,6 +175,19 @@ session_destroy();
                     <input type="text" name="phone" placeholder="Enter Phone number ex. +91 9876543210">
                 </div>
             </div>
+
+              <!-- birth Start -->
+              <div class="df">
+                    
+                    <div class="sub-df" >
+                        <label for="">City</label>
+                        <input type="text" name="location" placeholder="Enter City Name"  maxlength="12">
+                    </div>
+                    <div class="sub-df" >
+                        <label for="">Pin code </label>
+                        <input type="text" name="pincode" placeholder="Enter Security Answer"  maxlength="12">
+                    </div>
+                </div>
 <!--  -->
                 <div class="df">
                     <div class="sub-df" >
@@ -196,7 +209,19 @@ session_destroy();
             <div class="df">
                     <div class="sub-df" >
                     <label for="">Security Question<span style="color:red;">*</span></label>
-                    <input type="text" name="securityquestion" placeholder="Enter Security Question"  maxlength="12" required>
+                    <select name="securityquestion" required>
+                            <option value="In what city were you born?">In what city were you born?</option>
+                            <option value="What is the name of your favorite pet?">What is the name of your favorite pet?</option>
+                            <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                            <option value="What high school did you attend?">What high school did you attend?</option>
+                            <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
+                            <option value="What was the make of your first car?">What was the make of your first car?</option>
+                            <option value="What was your favorite food as a child?">What was your favorite food as a child?</option>
+                            <option value="Where did you meet your spouse?">Where did you meet your spouse?</option>
+                            <option value="What year was your father (or mother) born?">What year was your father (or mother) born?</option>
+                    </select>
+                    <!-- <input type="text" name="securityquestion" placeholder="Enter Security Question"  maxlength="12" required>
+                 -->
                 </div>
                 
                 <div class="sub-df" >
@@ -205,20 +230,7 @@ session_destroy();
                 </div>
             </div>
             <!-- security END -->
-            
-            <!-- birth Start -->
-            <div class="df">
-                    
-                <div class="sub-df" >
-                    <label for="">City</label>
-                    <input type="text" name="location" placeholder="Enter City Name"  maxlength="12">
-                </div>
-                <div class="sub-df" >
-                    <label for="">Pin code </label>
-                    <input type="text" name="pincode" placeholder="Enter Security Answer"  maxlength="12">
-                </div>
-            </div>
-            <!-- security END -->
+           
             <!-- password start -->
             <div class="df">
                     <div class="sub-df" >

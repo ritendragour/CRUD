@@ -199,11 +199,10 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
     <div class="main-container">  
         <form action="editfile.php?id=<?=$id?>" method="post">
             <div class="titlehead">
-            <a href="login.php" style="text-decoration: none;" class="text-dark"><h2><?=$company_name?></h2></a>
+            <a href="home.php" style="text-decoration: none;" class="text-dark"><h2><?=$company_name?></h2></a>
                 
                 <a href="login.php" class="btn btn-light homebtnforwardpassword">< < &nbsp;Back Home</a>
-                <a href="home.php" class="btn btn-light changedn">< < &nbsp;Back Home</a>
-                
+                <a href="home.php" class="btn btn-light changedn">< < &nbsp;Back Home</a>  
 
             </div>
 			<label for="" class="changedn">Full Name</label>
@@ -233,8 +232,20 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
             <div class="df">
                     <div class="sub-df changedn" >
                     <label for="">Security Question<span style="color:red;">*</span></label>
-                    <input type="text" name="securityquestion" placeholder="Enter Security Question" 
-                    style="width: 100%;" maxlength="12" value="<?=$sql['securityquestion']?>" required>
+                    <select name="securityquestion" style="width: 100%;" required>
+                            <option value="In what city were you born?">In what city were you born?</option>
+                            <option value="What is the name of your favorite pet?">What is the name of your favorite pet?</option>
+                            <option value="What is your mother's maiden name?">What is your mother's maiden name?</option>
+                            <option value="What high school did you attend?">What high school did you attend?</option>
+                            <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
+                            <option value="What was the make of your first car?">What was the make of your first car?</option>
+                            <option value="What was your favorite food as a child?">What was your favorite food as a child?</option>
+                            <option value="Where did you meet your spouse?">Where did you meet your spouse?</option>
+                            <option value="What year was your father (or mother) born?">What year was your father (or mother) born?</option>
+                    </select>
+                    <p style="color:red;margin: 0px;font-size: small;display: flex;justify-content: end;">Vold Value => <?=$sql['securityquestion']?></p>
+                    <!-- <input type="text" name="securityquestion" placeholder="Enter Security Question" 
+                    style="width: 100%;" maxlength="12" value="" required> -->
                 </div>
                 
                 <div class="sub-df changedn"  >
