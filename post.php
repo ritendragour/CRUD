@@ -3,7 +3,6 @@ include('db.php');
 include('bootstrap.php');
 session_start();
 
-
 if(isset($_POST['submit'])){
 
 $category= $_POST['category'];
@@ -12,12 +11,12 @@ $description= $_POST['description'];
 $file_path= $_FILES['file']['name'];
 $created_by= $_SESSION['id'];
 
-move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']['name']);
-
-$sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `file_path`, `created_by`)
+if(move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']['name'])){
+  
+    $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `file_path`, `created_by`)
 VALUES ('$category','$title','$description','$file_path','$created_by')");
-
 header('location:home.php');
+}
 }
 ?>
 
@@ -86,7 +85,7 @@ header('location:home.php');
             <textarea type="text" name="description" class="form-control" required></textarea>
             
             <label for="">File</label>
-            <input type="file" name='file' class="form-control" multiple>
+            <input type="file" name='file' class="form-control" multiple required>
             
             <label for="">Category</label>
             <select name="category" class="form-control">

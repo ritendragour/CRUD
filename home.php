@@ -78,7 +78,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             padding: 0px 20px;
             width: 98%;
         }
-        .post_time_cat{
+        /* .post_time_cat{
             background-color: #36e159;
             padding: 5px 10px;
             margin-bottom: 5px;
@@ -86,7 +86,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             flex-direction: column;
             align-items: center;
             border-radius: 15px;
-        }
+        } */
         @media (max-width:925px) {
             .inlower{
                 width: auto;
@@ -94,6 +94,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
         @media (max-width:775px) {
             .seoc{
+                flex-direction: column;
+            }
+            .post_span{
                 flex-direction: column;
             }
         }
@@ -131,20 +134,31 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         </div>
     </div>
     <div class="lower">
-        <div class="inlower">
+        <div class="inlower mt-3">
             <?php $sn=1;
             while ($row = $sql->fetch()){?>
                 <span class="post_span mt-2">
                     <h1><u><?=$sn++.".  ".$row['title']?></u></h1>
-                    <div class="post_time_cat">
-                        <p style="margin:0px" class="text-dark"><b><?=$row['category']?></b></p>
-                        <p style="margin:0px"><?=$row['dt']?></p>
-                    </div>
+                    <span style="display:flex">
+                        <p class="btn btn-light dn"><b><?=$row['category']?></b></p>
+
+                        <p><a href="<?php if($row['file_path'] == "" )
+                    {echo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TohhHft0Z-OnMClzUAcvjN5YVJXXcN2SjQ&usqp=CAU");}
+                    else{echo("./uploaded_file/".$row['file_path']);}?>" class="btn btn-info"><b>Download</b></a></p>
+                       
+                <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
+                
+                       <p class="btn btn-success"><?=$row['dt']?></p>
+                        <!-- <div class="post_time_cat">
+                        </div> -->
+                    </span>
                 </span>
-                <img src="<?php if($row['file_path'] == "")
+                
+                <img src="<?php if(!is_file($full_file_path))
                     {echo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TohhHft0Z-OnMClzUAcvjN5YVJXXcN2SjQ&usqp=CAU");}
                     else{echo("./uploaded_file/".$row['file_path']);}?>"
-                    alt="<?=$row['file_path']?>" height="400" width="95%">
+                    alt="This is not a Image" height="400" width="95%">
+                     
                 <h4 style="width: 90%;" class="mt-2"><?=$row['description']?></h4>
                 <p style="width: 100%;border: 2px solid black;" class='mt-4'></p>
             <?php } ?>
