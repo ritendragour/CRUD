@@ -6,7 +6,7 @@ include('bootstrap.php');
     $role= $_SESSION['role'];
     $id = $_SESSION['id'];
 
-    $sql = $conn->query("SELECT * FROM post");
+    $sql = $conn->query("SELECT * FROM `post` WHERE created_by = $id orderBy id => SORT_DESC");
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     header('location:login.php');
@@ -133,6 +133,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                 <iframe src="https://free.timeanddate.com/clock/i90mqbyf/n1617/fn6/fs16/fcfff/tc000/ftb/bas2/bat1/bacfff/pa8/tt0/tw1/th1/ta1/tb4" frameborder="0" width="216" height="58"></iframe>
         </div>
     </div>
+
+    <!-- POST TABLE -->
     <div class="lower">
         <div class="inlower mt-3">
             <?php $sn=1;
