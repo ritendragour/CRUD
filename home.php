@@ -157,7 +157,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                 <img src="<?php if(!is_file($full_file_path))
                     {echo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TohhHft0Z-OnMClzUAcvjN5YVJXXcN2SjQ&usqp=CAU");}
                     else{echo("./uploaded_file/".$row['file_path']);}?>"
-                    alt="This is not a Image" height="400" width="95%">
+                    alt="This is not a Image. This is <?=$row['file_path']?>" height="400" width="95%">
                      
                 <h4 style="width: 90%;" class="mt-2"><?=$row['description']?></h4>
                 <p style="width: 100%;border: 2px solid black;" class='mt-4'></p>
