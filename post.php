@@ -87,8 +87,8 @@ header('location:home.php');
             <label for="">File</label>
             <input type="file" name='file' class="form-control" required>
             
-            <label for="">Category</label>
-            <select name="category" class="form-control">
+            <label for="" class="dn">Category</label>
+            <select name="category" class="form-control dn">
                 <option value="Public">Public</option>
                 <option value="Private">Private</option>
             </select>
