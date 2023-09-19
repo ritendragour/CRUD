@@ -165,7 +165,7 @@ while($row = $sql->fetch()){
     <td class="noimp"><?=$row["location"]?></td>
     <td><?php if($row["role"]=="0"){echo"User";}else{echo"Admin";}?></td>
     <td class="noimp"><?=$row["dt"]?></td>
-<?php if($row['email'] == $SuperAdminEmail){ ?>
+<?php if(!($row['email'] == $SuperAdminEmail)){ ?>
     <td><?="<a href='update.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
         &$uniqid$uniqid$uniqid$uniqid$uniqid'><button class='btn btn-primary'>Update</button></a>"?></td>
     <?php if($role!="0"){?>
