@@ -79,13 +79,13 @@ header('location:home.php');
             <h2 style="display: flex;justify-content: center;" class="mb-4"><u><?=$company_name." Post"?></u></h2>
             
             <label for="">Title</label>
-            <input type="text" name="title" class="form-control" required>
+            <input type="text" name="title" class="form-control" minlength="8" required>
             
             <label for="">Description</label>
-            <textarea type="text" name="description" class="form-control" required></textarea>
+            <textarea type="text" name="description" class="form-control" minlength="40" required></textarea>
             
             <label for="">File</label>
-            <input type="file" name='file' class="form-control" multiple required>
+            <input type="file" name='file' class="form-control" required>
             
             <label for="">Category</label>
             <select name="category" class="form-control">
@@ -94,7 +94,7 @@ header('location:home.php');
             </select>
             
             <input type="submit" value="Post" name="submit" class="mt-2 btn btn-success">
-    </form>
+        </form>
 </div>
 </body>
 </html>
