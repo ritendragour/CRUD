@@ -6,7 +6,11 @@ include('bootstrap.php');
     $role= $_SESSION['role'];
     $id = $_SESSION['id'];
 
-    $sql = $conn->query("SELECT * FROM `post` WHERE created_by = $id");
+    if($role!="0"){
+    $sql = $conn->query("SELECT * FROM `post` ORDER BY id DESC");
+    }else{
+    $sql = $conn->query("SELECT * FROM `post` WHERE created_by = $id ORDER BY id DESC");
+    }
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     header('location:login.php');
@@ -27,6 +31,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             background-image:url('./logo.jpg');
             background-size:cover;
             background-position:center;
+            /* background-color:black; */
             height: 90vh;
             color:white;
         }
@@ -53,6 +58,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             display: flex;
             align-items: center;
             justify-content: space-evenly;
+            border-bottom: 1px solid white;
             background-color:rgba(1,1,1,0.6);
 
         }
@@ -68,8 +74,11 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             flex-direction: column;
             align-items: center;
             width:60%;
-            color:black;
-            background-color: rgb(255 255 255/ 40%);
+            color:white;
+            border:4px solid white;
+            background-color:rgb(0 0 0/ 80%);;
+
+            /* background-color: rgb(255 254 254/ 40%); */
         }
         .post_span{
             display: flex;   
@@ -138,31 +147,37 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <div class="lower">
         <div class="inlower mt-3">
             <?php $sn=1;
-            while ($row = $sql->fetch()){?>
+            while ($row = $sql->fetch()){ ?>
+
                 <span class="post_span mt-2">
                     <h1><u><?=$sn++.".  ".$row['title']?></u></h1>
                     <span style="display:flex">
                         <p class="btn btn-light dn"><b><?=$row['category']?></b></p>
-
-                        <p><a href="<?php if($row['file_path'] == "" )
-                    {echo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TohhHft0Z-OnMClzUAcvjN5YVJXXcN2SjQ&usqp=CAU");}
-                    else{echo("./uploaded_file/".$row['file_path']);}?>" class="btn btn-info" download><b>Download</b></a></p>
-                       
-                <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
-                
-                       <p class="btn btn-success"><?=$row['dt']?></p>
+                        <?php if($row['file_path'] != ""){?>
+                        <p><a href="/uploaded_file/<?=$row['file_path']?>" class="btn btn-info" download>
+                        <b>Explore <?=pathinfo($row['file_path'])['extension']?> File</b></a></p>
+                            <?php } ?>
+                    <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
+                    <p class="btn btn-success"><?=$row['dt']?></p>
+                    <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'>X</a>"?></p>
                         <!-- <div class="post_time_cat">
                         </div> -->
                     </span>
                 </span>
                 
-                <img src="<?php if(!is_file($full_file_path))
-                    {echo("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6TohhHft0Z-OnMClzUAcvjN5YVJXXcN2SjQ&usqp=CAU");}
-                    else{echo("./uploaded_file/".$row['file_path']);}?>"
+                <?php $file_extendsion = ['jpg','jpeg','png'];
+                if($row['file_path'] != ""){
+                 if(in_array(pathinfo($row['file_path'])['extension'],$file_extendsion)){?>
+                    <img style="margin: 10px;" src="./uploaded_file/<?=$row['file_path']?>"
                     alt="This is not a Image. This is <?=$row['file_path']?>" height="400" width="95%">
+                <?php } } ?>
                      
                 <h4 style="width: 90%;" class="mt-2"><?=$row['description']?></h4>
-                <p style="width: 100%;border: 2px solid black;" class='mt-4'></p>
+                <?php if($role!="0"){ ?>
+
+                <p style="margin:0px;display: flex;justify-content: end;width: 90%;">Created_by <?=$_SESSION['fullname']?></p>
+                <?php } ?>
+                <p style="width: 100%;border: 2px solid white;" class='mt-4'></p>
             <?php } ?>
         </div>
     </div>

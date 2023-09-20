@@ -11,12 +11,12 @@ $description= $_POST['description'];
 $file_path= $_FILES['file']['name'];
 $created_by= $_SESSION['id'];
 
-if(move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']['name'])){
+move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']['name']);
   
     $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `file_path`, `created_by`)
 VALUES ('$category','$title','$description','$file_path','$created_by')");
 header('location:home.php');
-}
+
 }
 ?>
 
@@ -78,21 +78,23 @@ header('location:home.php');
                 
             <h2 style="display: flex;justify-content: center;" class="mb-4"><u><?=$company_name." Post"?></u></h2>
             
-            <label for="">Title</label>
-            <input type="text" name="title" class="form-control" minlength="8" required>
+            <label for="">Title <span style="color:red;">*</span></label>
+            <input type="text" name="title" class="form-control" required>
             
-            <label for="">Description</label>
-            <textarea type="text" name="description" class="form-control" minlength="40" required></textarea>
+            <label for="">Description <span style="color:red;">*</span></label>
+            <textarea type="text" name="description" class="form-control" required></textarea>
             
-            <label for="">File</label>
-            <input type="file" name='file' class="form-control" required>
-            
-            <label for="" class="dn">Category</label>
+            <label for="" class="dn">Category </label>
             <select name="category" class="form-control dn">
                 <option value="Public">Public</option>
                 <option value="Private">Private</option>
             </select>
+
+            <label for="">File</label>
+            <input type="file" name='file' class="form-control" >
+            <p class="text-dark">Note : You can only upload image (jpg, jpeg, png) extensions.<br>Other extensions we will look at like Docs</p>
             
+        
             <input type="submit" value="Post" name="submit" class="mt-2 btn btn-success">
         </form>
 </div>
