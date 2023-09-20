@@ -173,9 +173,14 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                 <?php } } ?>
                      
                 <h4 style="width: 90%;" class="mt-2"><?=$row['description']?></h4>
-                <?php if($role!="0"){ ?>
+                <?php
+                        $createdByid = $row['created_by'];
+                        $createdByName = $conn->query("SELECT * FROM `info` WHERE id =$createdByid")->fetch();
+                        $createdByFullName = $createdByName['fname'].' '.$createdByName['lname'];
 
-                <p style="margin:0px;display: flex;justify-content: end;width: 90%;">Created_by <?=$_SESSION['fullname']?></p>
+                if($role!="0"){ ?>
+
+                <p style="margin:0px;display: flex;justify-content: end;width: 90%;">Created_by <?=$createdByFullName?></p>
                 <?php } ?>
                 <p style="width: 100%;border: 2px solid white;" class='mt-4'></p>
             <?php } ?>
