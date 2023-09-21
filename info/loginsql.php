@@ -9,12 +9,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $sqlLogin= $conn->query("SELECT * FROM `info` WHERE `email`= '$email'")->fetch();
 
     if(!$sqlLogin){
-        ?>
-          <script>
-            alert('Invalid email');
-          </script>
-        <?php
-        header('location:login.php');
+            header('location:login.php');
     }
 
     $checkpassword = password_verify($password, $sqlLogin['password']);
@@ -35,7 +30,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                         window.location.href = 'home.php';
                     }
                 }
-            </script>
         <?php
     }else{
         ?>
