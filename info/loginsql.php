@@ -21,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $_SESSION['id'] = $sqlLogin['id'];
         $_SESSION['mail'] = $sqlLogin ['email'];
         $_SESSION['fullname'] = $sqlLogin['fname']." ".$sqlLogin['lname'];  
-        ?>
+         ?>
             <link rel="stylesheet" href="../lib/w3.css">
             <body style="color:red;" onload="doNotPressbackButtonMGS()">
             <script>
@@ -30,6 +30,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
                         window.location.href = 'home.php';
                     }
                 }
+            </script>
         <?php
     }else{
         ?>
