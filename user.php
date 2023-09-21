@@ -117,7 +117,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         <a href="home.php" style="text-decoration: none;"><h2><?=$company_name?></h2></a>
         
         <!-- admin -->
-        <?php if($role!="0"){?>
+        <?php if($_SESSION['mail'] == $SuperAdminEmail){ ?>
         <button onclick="deleteFun()" class="btn btn-light noimp">Delete All</button>
         <?php }?>
 
