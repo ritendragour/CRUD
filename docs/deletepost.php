@@ -2,5 +2,5 @@
 include('../secure/db.php');
 $id = $_GET['id'];
 $delete = $conn->query("DELETE FROM `post` WHERE id= ".$id."");
-header('location:../home.php');
+header('location:../info/home.php');
 ?>

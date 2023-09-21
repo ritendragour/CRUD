@@ -15,7 +15,7 @@ move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']
   
     $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `file_path`, `created_by`)
 VALUES ('$category','$title','$description','$file_path','$created_by')");
-header('location:../home.php');
+header('location:../info/home.php');
 
 }
 ?>
@@ -70,8 +70,8 @@ header('location:../home.php');
 </head>
 <body>      
     <div class="loginHeader">
-            <a href="../home.php"><h2><?=$company_name?></h2></a>
-            <a href="../logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
+            <a href="../info/home.php"><h2><?=$company_name?></h2></a>
+            <a href="../info/logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
     </div>
     <div class="lower">
         <form method="post" enctype="multipart/form-data">
