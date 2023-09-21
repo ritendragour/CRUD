@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('secure/db.php');
 
 
 // $sqlLogin= $conn->query("SELECT * FROM `info`")->fetchall();

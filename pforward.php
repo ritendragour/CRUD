@@ -1,7 +1,7 @@
 <?php
 
-include('db.php');
-include('bootstrap.php');
+include('secure/db.php');
+include('secure/bootstrap.php');
 if(isset($_POST['submit'])){
 $email = $_POST['email'];
 

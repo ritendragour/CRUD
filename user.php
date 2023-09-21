@@ -1,7 +1,8 @@
 <?php
 session_start();
 
-include('bootstrap.php');
+include('secure/db.php');
+include('secure/bootstrap.php');
 
 $role= $_SESSION['role'];
 
@@ -91,7 +92,6 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 </head>
 <body>
     <?php
-        include('db.php');
         $sql = $conn->query("SELECT * FROM info");
 
         // Super Admin condition

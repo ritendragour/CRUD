@@ -1,6 +1,6 @@
 <?php
-include('db.php');
-include('bootstrap.php');
+include('../secure/db.php');
+include('../secure/bootstrap.php');
 session_start();
 
 if(isset($_POST['submit'])){
@@ -15,7 +15,7 @@ move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']
   
     $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `file_path`, `created_by`)
 VALUES ('$category','$title','$description','$file_path','$created_by')");
-header('location:home.php');
+header('location:../home.php');
 
 }
 ?>
@@ -51,7 +51,7 @@ header('location:home.php');
             justify-content: center;
             align-items: center;
             height: 95vh;
-            background-image:url('./logo.jpg');
+            background-image:url('../img/logo.jpg');
             background-size:cover;
             background-position:center;
          }   
@@ -70,8 +70,8 @@ header('location:home.php');
 </head>
 <body>      
     <div class="loginHeader">
-            <a href="home.php"><h2><?=$company_name?></h2></a>
-            <a href="logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
+            <a href="../home.php"><h2><?=$company_name?></h2></a>
+            <a href="../logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
     </div>
     <div class="lower">
         <form method="post" enctype="multipart/form-data">

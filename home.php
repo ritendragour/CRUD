@@ -1,6 +1,6 @@
 <?php
-include('db.php');
-include('bootstrap.php');
+include('secure/db.php');
+include('secure/bootstrap.php');
 
     session_start();
     $role= $_SESSION['role'];
@@ -28,7 +28,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             /* border:1px solid red; */
         }
         body{
-            background-image:url('./logo.jpg');
+            background-image:url('./img/logo.jpg');
             background-size:cover;
             background-position:center;
             /* background-color:black; */
@@ -131,7 +131,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         <div class="seoc">
             <h1 class="user_hello">Hello <?php echo$_SESSION['fullname']." !";?></h1>
             <span style="display:flex;">
-                <a href="post.php" class="btn btn-dark bg-primary">Upload Post</a>        
+                <a href="./docs/post.php" class="btn btn-dark bg-primary">Upload Post</a>        
                 <?php if($role!="0"){ ?>
                     <a href="user.php" class="btn btn-light">All User Data</a>
                     <a href="systemconfig.php" class="btn btn-info"> System Config</a>
@@ -159,7 +159,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                             <?php } ?>
                     <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
                     <p class="btn btn-success"><?=$row['dt']?></p>
-                    <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'>X</a>"?></p>
+                    <p><?="<a href='docs/deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'>X</a>"?></p>
                         <!-- <div class="post_time_cat">
                         </div> -->
                     </span>

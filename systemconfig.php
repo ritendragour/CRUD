@@ -1,6 +1,6 @@
 <?php
-include('db.php');
-include('bootstrap.php');
+include('secure/db.php');
+include('secure/bootstrap.php');
 session_start();
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){

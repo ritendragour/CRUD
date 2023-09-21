@@ -1,6 +1,6 @@
 <!-- Location = city -->
 <?php
-include('db.php');
+include('secure/db.php');
 session_start();
 session_unset();
 session_destroy();

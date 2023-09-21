@@ -1,6 +1,6 @@
 <?php
 
-include('db.php');
+include('secure/db.php');
 $sqldeleteall = $conn->query("DELETE FROM `info`")->fetch();
 
 $usesession = new useagain();

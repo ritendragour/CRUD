@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('secure/db.php');
 
 $usesession = new useagain();
 $usesession->session();

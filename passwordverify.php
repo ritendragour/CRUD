@@ -1,6 +1,6 @@
 <?php
-include('db.php');
-include('bootstrap.php');
+include('secure/db.php');
+include('secure/bootstrap.php');
 $accessSecurityquestion= $_GET['securityquestion'];
 $accessemail = $_GET['accessemail'];
 $ftime = $_GET['ftime'];
