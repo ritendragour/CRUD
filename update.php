@@ -288,9 +288,8 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 <div class="sub-df changedn wc" >
                 <label for=""> DOB <span style="color:red;">*</span></label>
                     <input type="date" name="birthdate" placeholder="Enter Security Question" 
-                    style="width: 100%;" maxlength="12" value="<?=$sql['birthdate']?>" required>
+                    style="width: 100%;" max="<?=date('Y-m-d')?>" value="<?=$sql['birthdate']?>" required>
                 </div>
-
             </div>
             <!-- security END -->
 

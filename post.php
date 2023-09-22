@@ -17,7 +17,7 @@ move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']
 
       $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `file_path`, `created_by`)
     VALUES ('$category','$title','$description','$file_path','$created_by')");
-    header('location:home.php');
+        header('location:home.php');
     
     }catch(exception $e){
         header('location:post.php');

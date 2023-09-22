@@ -126,6 +126,9 @@ session_destroy();
         .showpassmode{
             justify-content: flex-start;
         }
+        input[type="date"] {
+            width: 100% !important;
+        }
         @media(max-width:1200px){ 
         .main-container {
             height: auto;
@@ -200,9 +203,8 @@ session_destroy();
                 </div>
                 <div class="sub-df" >
                     <label for=""> DOB <span style="color:red;">*</span></label>
-                    <input type="date" name="birthdate" required>
+                    <input type="date" name="birthdate" max="<?=date('Y-m-d')?>" required>
                 </div>
-
             </div>
 
             <!-- security Start -->
