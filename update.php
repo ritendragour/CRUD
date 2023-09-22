@@ -164,6 +164,9 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
         .showpassmode{
             justify-content: flex-start;
         }
+        input[type="date"] {
+            width: 100% !important;
+        }
         @media(max-width:1200px){
             .main-container {
             height: auto;
