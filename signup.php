@@ -188,7 +188,7 @@ session_destroy();
                     </div>
                     <div class="sub-df" >
                         <label for="">Pin code </label>
-                        <input type="text" name="pincode" placeholder="Enter Security Answer"  maxlength="12">
+                        <input type="text" name="pincode" placeholder="Enter Security Answer"  maxlength="6">
                     </div>
                 </div>
 <!--  -->

@@ -23,7 +23,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body{
             background-image:url('./logo.jpg');
@@ -141,7 +141,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                             <?php } ?>
                     <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
                     <p class="btn btn-success"><?=$row['dt']?></p>
-                    <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'>X</a>"?></p>
+                    <p><?="<a href='updatepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-warning text-light'><i class='fa fa-pencil'></i></a>"?></p>
+                    <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'><i class='fa fa-trash-o'></i></a>"?></p>
                     </span>
                 </span>
                 
@@ -157,8 +158,17 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                         $createdByid = $row['created_by'];
                         $createdByName = $conn->query("SELECT * FROM `info` WHERE id =$createdByid")->fetch();
                         $createdByFullName = $createdByName['fname'].' '.$createdByName['lname'];
+
+                        $updated_by_id = $row['updated_by'];
+                        $updated_byName = $conn->query("SELECT * FROM `info` WHERE id =$updated_by_id")->fetch();
+                        $updated_byFullName = $updated_byName['fname'].' '.$updated_byName['lname'];
                 ?>
-                <p style="margin:0px;display: flex;justify-content: end;width: 90%;">Created by <?=$createdByFullName?></p>
+                <span class="post_span">
+                    <p class='m-0'>Created by <?=$createdByFullName?></p>
+                    <?php if($createdByid != $updated_by_id){?>
+                    <p class='m-0'>Updated by <?=$updated_byFullName?></p>
+                    <?php } ?>
+                </span>
                 <p style="width: 100%;border: 2px solid white;" class='mt-4'></p>
             <?php } ?>
         </div>

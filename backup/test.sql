@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Sep 26, 2023 at 11:12 AM
--- Server version: 5.7.43
--- PHP Version: 8.1.16
+-- Host: 127.0.0.1
+-- Generation Time: Sep 26, 2023 at 11:40 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ubrijxav_ri_test`
+-- Database: `test`
 --
 
 -- --------------------------------------------------------
@@ -41,21 +41,21 @@ CREATE TABLE `info` (
   `pincode` int(11) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `role` varchar(255) NOT NULL,
-  `dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `updated_by` int(11) NOT NULL,
+  `dt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `info`
 --
 
-INSERT INTO `info` (`id`, `fname`, `lname`, `email`, `password`, `securityquestion`, `securityanswer`, `birthdate`, `phone`, `gender`, `pincode`, `location`, `role`, `dt`) VALUES
-(1, 'Ritendra', 'gour', 'ritendragour5@gmail.com', '$2y$10$Ky4dSnxMpg3FHaz0a.jLkOTcFYC7PIOuvPrH1Rw4tT4rjthIcLpn6', 'nick name', 'ashwani', '1998-03-27', '+919826964395', 'Male', 461223, 'Seoni Malwa', '10', '2023-09-01 12:57:19'),
-(11, 'Ashwani', 'gour', 'info@ritendra.in', '$2y$10$B78JnNg7MxJI5vRq4eMk2O8NA6y8hGAyKpdGTx2mJoYG3sSlDMftS', 'In what city were you born?', 'ashwani', '1998-03-27', '+919826964395', 'Male', 461223, 'Seoni Malwaa', '10', '2023-09-02 14:44:22'),
-(12, 'anurag', 'gour', 'anuraggour7000@gmail.com', '$2y$10$esR3KrwnhxrSYBQ4U0Vt1.AasuowT.Q5c5v9xBTKBrNH3iPIt0CCq', 'nick name', 'annu', '2002-08-01', '8103041752', 'Male', 452010, 'indore', '0', '2023-09-03 01:11:33'),
-(15, 'Gulshan', 'Lowanshi', 'gulshanlowanshi1234@gmail.com', '$2y$10$.7JEAz5XepVxMZ34jMqOEuOSm.bgcHFYMOuEPSa4jxyiLjpvx3L9C', 'Bike', 'Apache', '1998-08-06', '9131492775', 'Male', 461223, 'Seoni malwa', '0', '2023-09-09 17:46:46'),
-(16, 'Abhishek', 'Chandravanshi', 'abhishekchandravanshi444@gmail.com', '$2y$10$DuXnCdFfXVXVChthjvLnwOZHEY92ij/uBUen4bAvyr9e0jsoQvN1W', 'In what city were you born?', 'Bhopal', '1999-06-15', '09074608293', 'Male', 452011, '452011', '0', '2023-09-09 18:27:30'),
-(20, 'monica', 'mishra', 'monica@gmail.com', '$2y$10$DQKP1fT0byVTAVYmkl3XY.4/pOzMuY.mVRU7EIDM9PLjSLFVBSofe', 'In what city were you born?', 'seoni', '1997-03-29', '9893445141', 'Female', 452010, 'indore', '0', '2023-09-20 10:19:46'),
-(21, 'Ravi', 'Jain', 'rjravi0325@gmail.com', '$2y$10$Uf/WIyqqGVRuhOzl3D9VOuJjPux4LM0teC6PEJENVnfkt86ba3gJC', 'In what city were you born?', 'Gulab jamun ', '1999-03-25', '7073936166', 'Male', 452011, 'Indore', '0', '2023-09-20 16:50:55');
+INSERT INTO `info` (`id`, `fname`, `lname`, `email`, `password`, `securityquestion`, `securityanswer`, `birthdate`, `phone`, `gender`, `pincode`, `location`, `role`, `updated_by`, `dt`) VALUES
+(1, 'Ritendra', 'gour', 'ritendragour5@gmail.com', '$2y$10$Ky4dSnxMpg3FHaz0a.jLkOTcFYC7PIOuvPrH1Rw4tT4rjthIcLpn6', 'nick name', 'ashwani', '1998-03-27', '+919826964395', 'Male', 461223, 'Seoni Malwa', '10', 11, '2023-09-01 12:57:19'),
+(11, 'Ashwani', 'gourf', 'info@ritendra.in', '$2y$10$IIwpLmjnd15oTwJZhUEcmuHaZ.ivORAGqcFFIMdIxgy9q0.4DdmCG', 'In what city were you born?', 'ashwani', '1998-03-27', '+919826964395', 'Male', 461223, 'Seoni Malwaa', '10', 1, '2023-09-02 14:44:22'),
+(12, 'anurag', 'gour', 'anuraggour7000@gmail.com', '$2y$10$esR3KrwnhxrSYBQ4U0Vt1.AasuowT.Q5c5v9xBTKBrNH3iPIt0CCq', 'nick name', 'annu', '2002-08-01', '8103041752', 'Male', 452010, 'indore', '0', 11, '2023-09-03 01:11:33'),
+(16, 'Abhishek', 'Chandravanshi', 'abhishekchandravanshi444@gmail.com', '$2y$10$DuXnCdFfXVXVChthjvLnwOZHEY92ij/uBUen4bAvyr9e0jsoQvN1W', 'In what city were you born?', 'Bhopal', '1999-06-15', '09074608293', 'Male', 452011, '452011', '0', 11, '2023-09-09 18:27:30'),
+(20, 'monica', 'mishra', 'monica@gmail.com', '$2y$10$DQKP1fT0byVTAVYmkl3XY.4/pOzMuY.mVRU7EIDM9PLjSLFVBSofe', 'In what city were you born?', 'seoni', '1997-03-29', '9893445141', 'Female', 452010, 'indore', '0', 11, '2023-09-20 10:19:46'),
+(21, 'Ravi', 'Jain', 'rjravi0325@gmail.com', '$2y$10$ajoEajgNKqGRms2ZNnA6TeuVKq1y3WiqFE1R0m3tdXn95igB.XF5e', 'In what city were you born?', 'Gulab jamun ', '1999-03-25', '7073936166', 'Male', 452011, 'Indore', '0', 1, '2023-09-20 16:50:55');
 
 -- --------------------------------------------------------
 
@@ -71,8 +71,8 @@ CREATE TABLE `post` (
   `share_id` int(11) NOT NULL,
   `file_path` varchar(255) NOT NULL,
   `created_by` int(11) NOT NULL,
-  `dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `post`
@@ -92,8 +92,8 @@ CREATE TABLE `systemconfig` (
   `title` varchar(255) NOT NULL,
   `value` varchar(255) NOT NULL,
   `updated_by` int(11) NOT NULL,
-  `dt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `dt` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `systemconfig`
@@ -114,7 +114,8 @@ INSERT INTO `systemconfig` (`id`, `title`, `value`, `updated_by`, `dt`) VALUES
 --
 ALTER TABLE `info`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `updated_by` (`updated_by`);
 
 --
 -- Indexes for table `post`
@@ -156,6 +157,12 @@ ALTER TABLE `systemconfig`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `info`
+--
+ALTER TABLE `info`
+  ADD CONSTRAINT `info_ibfk_1` FOREIGN KEY (`updated_by`) REFERENCES `info` (`id`);
 
 --
 -- Constraints for table `post`

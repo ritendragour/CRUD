@@ -3,13 +3,19 @@ include('db.php');
 include('bootstrap.php');
 session_start();
 
+$id = $_GET['id'];
+$sqlFetch = $conn->query("SELECT * FROM `post` where id='$id'")->fetch();
+
+$sqlFetchShareID = $sqlFetch['share_id'];
+$sqlEmail = $conn->query("SELECT * FROM `info` where id='$sqlFetchShareID'")->fetch();
+
 if(isset($_POST['submit'])){
 
 $category= $_POST['category'];
 $title= $_POST['title'];
 $description= $_POST['description'];
 $file_path= $_FILES['file']['name'];
-$created_by= $_SESSION['id'];
+$updated_by= $_SESSION['id'];
 $sharedEmail = $_POST['share_id']; 
 
     move_uploaded_file($_FILES['file']['tmp_name'], "uploaded_file/".$_FILES['file']['name']);
@@ -34,8 +40,8 @@ $sharedEmail = $_POST['share_id'];
     if($sharedid){
 
         try{           
-            $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `share_id`,`file_path`, `created_by`, `updated_by`)
-            VALUES ('$category','$title','$description','$sharedid','$file_path','$created_by','$created_by')");
+            $sql = $conn->query("UPDATE  `post` SET`category`='$category', `title`='$title', `description`='$description',
+             `share_id`= '$sharedid',`file_path`='$file_path',`updated_by`='$updated_by' WHERE id=$id");
 
             header('location:home.php');
         }catch(exception $e){
@@ -112,10 +118,11 @@ $sharedEmail = $_POST['share_id'];
             <h2 style="display: flex;justify-content: center;" class="mb-4"><u><?=$company_name." Post"?></u></h2>
             
             <label for="">Title <span style="color:red;">*</span></label>
-            <input type="text" name="title" class="form-control" placeholder="Enter Title" required>
-            
+            <input type="text" name="title" class="form-control" placeholder="Enter Title" value="<?=$sqlFetch['title']?>" required>
+        
             <label for="">Description <span style="color:red;">*</span></label>
-            <textarea type="text" name="description" class="form-control" maxlength="250" rows="3" placeholder="Enter Description" required></textarea>
+            <input type="text" name="description" class="form-control"
+            value="<?=$sqlFetch['description']?>" placeholder="Enter Description" required>
             <!-- <p class="text-danger text-right" style="text-align: end;margin:0px">Note : Don't use enter button in text area.</p> -->
 
             <label for="" class="dn">Category </label>
@@ -125,14 +132,14 @@ $sharedEmail = $_POST['share_id'];
             </select>
 
             <label for="">Share with other mail</label>
-            <input type="email" name="share_id" class="form-control" placeholder="Enter share Email">
-            <p class="text-danger text-right" style="text-align: end;margin:0px">You can share only one email address.</p>
-
+            <input type="text" name="share_id" class="form-control" value="<?=$sqlEmail['email']?>" placeholder="Enter share Email">
+            <p class="text-danger text-right" style="text-align: end;margin:0px">You can share only one email address</p>
+          
             <label for="">File</label>
-            <input type="file" name='file' class="form-control" >
-            <p class="text-dark">Note : You can only upload image (jpg, jpeg, png) extensions.<br>Other extensions we will look at like Docs</p>
+                <input type="file" name='file' class="form-control" value="<?=$sqlFetch['file_path']?>">
+                <p class="text-dark">Note : You can only upload image (jpg, jpeg, png) extensions.<br>Other extensions we will look at like Docs</p>
             
-            <input type="submit" value="Post" name="submit" class="mt-2 btn btn-success">
+            <input type="submit" value="Post Update" name="submit" class="mt-2 btn btn-success">
         </form>
 </div>
 </body>

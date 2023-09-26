@@ -268,7 +268,7 @@ $sql = $conn->query("SELECT * FROM info where id=".$id."")->fetch();
                 <div class="sub-df changedn" >
                     <label for="">Pin code </label>
                     <input type="text" name="pincode" placeholder="Enter Pin Code"
-                    style="width: 100%;" maxlength="12" value="<?=$sql['pincode']?>">
+                    style="width: 100%;" maxlength="6" value="<?=$sql['pincode']?>">
                 </div>
             </div>
 
