@@ -3,8 +3,6 @@ include('db.php');
 include('bootstrap.php');
 
 session_start();
-
-
 // Get method 
 if(!isset($_GET['pf'])){
     $pf= false;
