@@ -12,12 +12,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         $SuperAdminEmail_value = $_POST['SuperAdminEmail'];
         $SupportEmail = $_POST['SupportEmail'];
         $domainName_value = $_POST['domainName'];
-        $created_by_user =$_SESSION['id'];
+        $updated_by_user_id =$_SESSION['id'];
 
-        $conn->query("UPDATE `systemconfig` SET `value`='$company_name_value' ,`created_by` = '$created_by_user' WHERE id='1'");
-        $conn->query("UPDATE `systemconfig` SET `value`='$SuperAdminEmail_value' ,`created_by` = '$created_by_user' WHERE id='2'");
-        $conn->query("UPDATE `systemconfig` SET `value`='$SupportEmail' ,`created_by` = '$created_by_user' WHERE id='3'");
-        $conn->query("UPDATE `systemconfig` SET `value`='$domainName_value' ,`created_by` = '$created_by_user' WHERE id='4'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$company_name_value' ,`updated_by` = '$updated_by_user_id' WHERE id='1'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$SuperAdminEmail_value' ,`updated_by` = '$updated_by_user_id' WHERE id='2'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$SupportEmail' ,`updated_by` = '$updated_by_user_id' WHERE id='3'");
+        $conn->query("UPDATE `systemconfig` SET `value`='$domainName_value' ,`updated_by` = '$updated_by_user_id' WHERE id='4'");
         header('location:home.php');
     }
 ?>
