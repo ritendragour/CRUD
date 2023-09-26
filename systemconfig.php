@@ -36,12 +36,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             display: flex;
             justify-content: space-between;
             background-color: #007bff;
-            padding: 5px;
+            padding: 5px 30px;
+            color: black;
         }
         .logoutbtn{
             display: flex;
             text-decoration: none;
-            color: black;
             align-items: center;
             justify-content: center;   
         }
@@ -106,9 +106,9 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
         ?>
     <div class="main-container">
-        <a href="home.php" class="btn text-light"><h2>
-            <u style="text-decoration: none;"> <?=$company_name?></u></h2></a>    
-                <a href="logout.php" class="logoutbtn"><h4 class="btn btn-warning" style="font-weight: 600;">
+        <a href="home.php" class="btn p-0"><h2 class="m-0">
+            <u style="text-decoration: none;" > <?=$company_name?></u></h2></a>    
+                <a href="logout.php" class="logoutbtn"><h4 class="btn btn-warning m-0" style="font-weight: 600;">
                   logout <?php echo"( ".$_SESSION['fullname']." )";?></h4></a>
  
     </div>

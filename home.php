@@ -107,7 +107,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 <body>
     <div class="upper">
         <div class="loginHeader">
-            <a href="home.php"><h2><?=$company_name?></h2></a>
+            <a href="home.php"><h2  class="m-0"><?=$company_name?></h2></a>
             <a href="logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
         </div>
         <div class="seoc">

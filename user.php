@@ -25,13 +25,13 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         .main-container{
             display: flex;
             justify-content: space-between;
-            padding: 0px 20px;
+            padding: 5px 30px;
             align-items: center;
             background-color:#007bff;
         }
         a h2{
             text-decoration: none;
-            color: white;
+            color: black;
             font-weight: 600;
         }
         table {
@@ -114,7 +114,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             }
     ?>
     <div class="main-container">
-        <a href="home.php" style="text-decoration: none;"><h2><?=$company_name?></h2></a>
+        <a href="home.php" style="text-decoration: none;"><h2 class="m-0"><?=$company_name?></h2></a>
         
         <!-- admin -->
         <?php if(($_SESSION['mail'] == $SuperAdminEmail)){ ?>

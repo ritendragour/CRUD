@@ -57,6 +57,9 @@ $sharedEmail = $_POST['share_id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
     <style>
+        *{
+            font-family: 'Roboto', sans-serif;
+        }
         .loginHeader {
             display: flex;
             align-items: center;
@@ -100,7 +103,7 @@ $sharedEmail = $_POST['share_id'];
 </head>
 <body>      
     <div class="loginHeader">
-            <a href="home.php"><h2><?=$company_name?></h2></a>
+            <a href="home.php"><h2 class="m-0"><?=$company_name?></h2></a>
             <a href="logout.php"><button class="btn btn-warning">logout <?php echo"( ".$_SESSION['fullname']." )";?></button></a>
     </div>
     <div class="lower">
@@ -118,11 +121,12 @@ $sharedEmail = $_POST['share_id'];
             <label for="" class="dn">Category </label>
             <select name="category" class="form-control dn">
                 <option value="Public">Public</option>
-                <option value="Private">Private</option>
+                <option value="Private">Private</option>    
             </select>
 
             <label for="">Share with other mail</label>
             <input type="text" name="share_id" class="form-control" placeholder="Enter share Email">
+            <p class="text-danger text-right" style="text-align: end;margin:0px">You can share only one email address.</p>
 
             <label for="">File</label>
             <input type="file" name='file' class="form-control" >
