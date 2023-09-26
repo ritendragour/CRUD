@@ -5,11 +5,12 @@ include('bootstrap.php');
     session_start();
     $role= $_SESSION['role'];
     $id = $_SESSION['id'];
+    $CheckSharedMail = $_SESSION['mail'];
 
-    if($role!="0"){
-    $sql = $conn->query("SELECT * FROM `post` ORDER BY id DESC");
+    if(($_SESSION['mail'] == $SuperAdminEmail)){ 
+        $sql = $conn->query("SELECT * FROM `post` ORDER BY id DESC");
     }else{
-    $sql = $conn->query("SELECT * FROM `post` WHERE created_by = $id ORDER BY id DESC");
+        $sql = $conn->query("SELECT * FROM `post` WHERE created_by ='$id' || share_id = '$id' ORDER BY id DESC");
     }
 
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
@@ -24,14 +25,10 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <title>Home</title>
 
     <style>
-        *{
-            /* border:1px solid red; */
-        }
         body{
             background-image:url('./logo.jpg');
             background-size:cover;
             background-position:center;
-            /* background-color:black; */
             height: 90vh;
             color:white;
         }
@@ -51,16 +48,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             color: #121010;
             font-weight: 600;
         }
-        h2{
-            /* color:white; */
-        }
         .seoc{
             display: flex;
             align-items: center;
             justify-content: space-evenly;
             border-bottom: 1px solid white;
             background-color:rgba(1,1,1,0.6);
-
         }
         .seoc a{
             font-size: 20px;
@@ -76,9 +69,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             width:60%;
             color:white;
             border:4px solid white;
-            background-color:rgb(0 0 0/ 80%);;
-
-            /* background-color: rgb(255 254 254/ 40%); */
+            background-color:rgb(0 0 0/ 80%);
         }
         .post_span{
             display: flex;   
@@ -87,15 +78,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
             padding: 0px 20px;
             width: 98%;
         }
-        /* .post_time_cat{
-            background-color: #36e159;
-            padding: 5px 10px;
-            margin-bottom: 5px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 15px;
-        } */
         @media (max-width:925px) {
             .inlower{
                 width: auto;
@@ -160,8 +142,6 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                     <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
                     <p class="btn btn-success"><?=$row['dt']?></p>
                     <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'>X</a>"?></p>
-                        <!-- <div class="post_time_cat">
-                        </div> -->
                     </span>
                 </span>
                 
@@ -177,11 +157,8 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                         $createdByid = $row['created_by'];
                         $createdByName = $conn->query("SELECT * FROM `info` WHERE id =$createdByid")->fetch();
                         $createdByFullName = $createdByName['fname'].' '.$createdByName['lname'];
-
-                if($role!="0"){ ?>
-
-                <p style="margin:0px;display: flex;justify-content: end;width: 90%;">Created_by <?=$createdByFullName?></p>
-                <?php } ?>
+                ?>
+                <p style="margin:0px;display: flex;justify-content: end;width: 90%;">Created by <?=$createdByFullName?></p>
                 <p style="width: 100%;border: 2px solid white;" class='mt-4'></p>
             <?php } ?>
         </div>
