@@ -113,12 +113,12 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         <div class="seoc">
             <h1 class="user_hello">Hello <?php echo$_SESSION['fullname']." !";?></h1>
             <span style="display:flex;">
-                <a href="post.php" class="btn btn-dark bg-primary">Upload Post</a>        
+                <a href="post.php" class="btn btn-dark bg-primary">Create Post</a>        
                 <?php if($role!="0"){ ?>
-                    <a href="user.php" class="btn btn-light">All User Data</a>
+                    <a href="user.php" class="btn btn-light">All User Info</a>
                     <a href="systemconfig.php" class="btn btn-info"> System Config</a>
                 <?php } else{ ?>
-                        <a href="update.php?id=<?=$id?>" class="btn btn-light">Updated data</a>        
+                        <a href="update.php?id=<?=$id?>" class="btn btn-light">Update data</a>        
                 <?php } ?>
             </span>
                 <iframe src="https://free.timeanddate.com/clock/i90mqbyf/n1617/fn6/fs16/fcfff/tc000/ftb/bas2/bat1/bacfff/pa8/tt0/tw1/th1/ta1/tb4" frameborder="0" width="216" height="58"></iframe>
@@ -135,14 +135,15 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                     <h1><u><?=$sn++.".  ".$row['title']?></u></h1>
                     <span style="display:flex">
                         <p class="btn btn-light dn"><b><?=$row['category']?></b></p>
+
                         <?php if($row['file_path'] != ""){?>
                         <p><a href="/uploaded_file/<?=$row['file_path']?>" class="btn btn-info" download>
                         <b>Explore <?=pathinfo($row['file_path'])['extension']?> File</b></a></p>
-                            <?php } ?>
-                    <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
-                    <p class="btn btn-success"><?=$row['dt']?></p>
-                    <p><?="<a href='updatepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-warning text-light'><i class='fa fa-pencil'></i></a>"?></p>
-                    <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'><i class='fa fa-trash-o'></i></a>"?></p>
+                        <?php } ?>
+                        
+                        <?php $full_file_path = "./uploaded_file/".$row['file_path'];?>
+                        <p><?="<a href='updatepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-warning text-light'><i class='fa fa-pencil'></i></a>"?></p>
+                        <p><?="<a href='deletepost.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]&$uniqid$uniqid$uniqid' class='btn btn-danger text-light'><i class='fa fa-trash-o'></i></a>"?></p>
                     </span>
                 </span>
                 
@@ -157,17 +158,20 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
                 <?php
                         $createdByid = $row['created_by'];
                         $createdByName = $conn->query("SELECT * FROM `info` WHERE id =$createdByid")->fetch();
-                        $createdByFullName = $createdByName['fname'].' '.$createdByName['lname'];
+                        $createdByFullName = 'Created by '.$createdByName['fname'].' '.$createdByName['lname'];
 
-                        $updated_by_id = $row['updated_by'];
-                        $updated_byName = $conn->query("SELECT * FROM `info` WHERE id =$updated_by_id")->fetch();
-                        $updated_byFullName = $updated_byName['fname'].' '.$updated_byName['lname'];
+                        if(is_null($row['updated_by'])){
+                            $updated_byFullName = "";
+                        }else{
+                            $updated_by_id = $row['updated_by'];
+                            $updated_byName = $conn->query("SELECT * FROM `info` WHERE id =$updated_by_id")->fetch();
+                            $updated_byFullName = 'Updated by '.$updated_byName['fname'].' '.$updated_byName['lname'];
+                        }
                 ?>
                 <span class="post_span">
-                    <p class='m-0'>Created by <?=$createdByFullName?></p>
-                    <?php if($createdByid != $updated_by_id){?>
-                    <p class='m-0'>Updated by <?=$updated_byFullName?></p>
-                    <?php } ?>
+                    <p class='m-0'><?=$createdByFullName?></p>
+                    <p class='m-0'><?=$updated_byFullName?></p>
+                    <p class="m-0"><?=$row['dt']?></p>
                 </span>
                 <p style="width: 100%;border: 2px solid white;" class='mt-4'></p>
             <?php } ?>

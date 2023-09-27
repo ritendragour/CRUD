@@ -8,6 +8,9 @@
         .dn{
             display: none;
         }
+        .btn{
+            margin-right: 5px;
+        }
         @media (max-width:480px) {
             .dn{
             display: none;

@@ -172,7 +172,6 @@ while($row = $sql->fetch()){
     <td class="noimp impcloumn"><?="<a href='delete.php?&$uniqid$uniqid$uniqid$uniqid$uniqid&id=$row[id]
         &$uniqid$uniqid$uniqid$uniqid$uniqid'>
     <button class='btn btn-danger'>Delete</button></a>"?></td>
-
     <?php }}else{
         ?>
         <td><?="<button class='btn btn-primary' onclick='canNotChangeSuperAdminData()'>Update</button>"?></td>

@@ -115,7 +115,7 @@ $sharedEmail = $_POST['share_id'];
     <div class="lower">
         <form method="post" enctype="multipart/form-data">
                 
-            <h2 style="display: flex;justify-content: center;" class="mb-4"><u><?=$company_name." Post"?></u></h2>
+            <h2 style="display: flex;justify-content: center;" class="mb-1"><u>Update Post</u></h2>
             
             <label for="">Title <span style="color:red;">*</span></label>
             <input type="text" name="title" class="form-control" placeholder="Enter Title" value="<?=$sqlFetch['title']?>" required>
@@ -139,7 +139,7 @@ $sharedEmail = $_POST['share_id'];
                 <input type="file" name='file' class="form-control" value="<?=$sqlFetch['file_path']?>">
                 <p class="text-dark">Note : You can only upload image (jpg, jpeg, png) extensions.<br>Other extensions we will look at like Docs</p>
             
-            <input type="submit" value="Post Update" name="submit" class="mt-2 btn btn-success">
+            <input type="submit" value="Update Post" name="submit" class="mt-2 btn btn-success">
         </form>
 </div>
 </body>

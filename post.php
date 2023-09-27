@@ -34,8 +34,8 @@ $sharedEmail = $_POST['share_id'];
     if($sharedid){
 
         try{           
-            $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `share_id`,`file_path`, `created_by`, `updated_by`)
-            VALUES ('$category','$title','$description','$sharedid','$file_path','$created_by','$created_by')");
+            $sql = $conn->query("INSERT INTO `post`(`category`, `title`, `description`, `share_id`,`file_path`, `created_by`)
+            VALUES ('$category','$title','$description','$sharedid','$file_path','$created_by')");
 
             header('location:home.php');
         }catch(exception $e){
@@ -109,7 +109,7 @@ $sharedEmail = $_POST['share_id'];
     <div class="lower">
         <form method="post" enctype="multipart/form-data">
                 
-            <h2 style="display: flex;justify-content: center;" class="mb-4"><u><?=$company_name." Post"?></u></h2>
+            <h2 style="display: flex;justify-content: center;" class="mb-1"><u><a href="home.php"><h2 class="m-0"><?=$company_name." Post"?></h2></a></u></h2>
             
             <label for="">Title <span style="color:red;">*</span></label>
             <input type="text" name="title" class="form-control" placeholder="Enter Title" required>
