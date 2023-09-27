@@ -80,7 +80,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
         }
         @media (max-width:925px) {
             .inlower{
-                width: auto;
+                min-width: 90%;
             }
         }
         @media (max-width:775px) {
