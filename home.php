@@ -27,6 +27,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
     <style>
         body{
             background-image:url('./logo.jpg');
+            /* https://www.popsci.com/uploads/2021/10/21/How-to-Delete-Facebook.jpg?auto=webp&width=1440&height=810 */
             background-size:cover;
             background-position:center;
             height: 90vh;
