@@ -21,9 +21,9 @@ if(!isset($_GET['pf'])){
     
     $ftime = $_GET['ftime'];
     // print_r(strtotime("+30 minutes", time()) > ((int)$ftime)); die;
-    if((strtotime("+30 minutes", time())) < ((int)$ftime)){
-        header("location:login.php");
-    }
+    // if((strtotime("+30 minutes", time())) < ((int)$ftime)){
+    //     header("location:login.php");
+    // }
     ?>
     <style>
         .changedn{

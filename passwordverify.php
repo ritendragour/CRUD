@@ -34,7 +34,7 @@ To reset your password, please click on the link below.
 
 $domainName/update.php?&$uniqid$uniqid&ftime=$ftime&$uniqid&id=$sqlid&$uniqid&pf=$pf&$uniqid& 
 
-If you did not request this reset, you can ignore this email. It will expire in 30 min.
+If you did not request this reset, you can ignore this email. 
 
 Try to login IP $IPAddress.
 
@@ -43,9 +43,9 @@ Email: '$SupportEmail'
 Website: www.$domainName 
 
 Copyright © $company_name , All rights reserved.";
+// It will expire in 30 min.
 
 // END MAIL
-
                 $headers = 'From: '.$SupportEmail;
 
                 mail($accessemail,$subject,$message,$headers);
